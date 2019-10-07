@@ -4,6 +4,7 @@ import {apiGet, apiPost} from '../utilities/request-helper';
 import {Messages} from '../message';
 
 
+
 export default class LocationReportSubmit extends React.Component {
     constructor(props) {
         super(props);
@@ -61,7 +62,7 @@ export default class LocationReportSubmit extends React.Component {
                     </FormGroup>
                     <FormGroup>
                         <ControlLabel>Report</ControlLabel>
-                        <FormControl type='text' required
+                        <FormControl className='report-textarea-noresize' type='text' required
                             componentClass='textarea' rows={6}
                             placeholder='Write report'
                             value={this.state.reportBody}
