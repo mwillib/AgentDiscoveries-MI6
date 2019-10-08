@@ -6,12 +6,14 @@ public class TokenResponseApiModel {
     private String expires;
     private int userId;
     private boolean isAdmin;
+    private int agentId;
 
-    public TokenResponseApiModel(String token, String expires, int userId, boolean isAdmin) {
+    public TokenResponseApiModel(String token, String expires, int userId, boolean isAdmin, int agentId) {
         this.token = token;
         this.userId = userId;
         this.expires = expires;
-        this.isAdmin=isAdmin;
+        this.isAdmin = isAdmin;
+        this.agentId = agentId;
     }
 
     public String getToken() {
