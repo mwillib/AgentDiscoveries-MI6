@@ -64,6 +64,7 @@ export default class LocationReportSubmit extends React.Component {
                     <FormGroup>
                         <ControlLabel>Report Title</ControlLabel>
                         <FormControl type='input' required
+                            maxlength="50"
                             placeholder='Enter report title'
                             value={this.state.reportTitle}
                             onChange={this.onReportTitleChange}
