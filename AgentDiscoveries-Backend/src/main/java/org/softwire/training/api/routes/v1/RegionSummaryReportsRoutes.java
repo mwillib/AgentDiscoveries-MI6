@@ -1,6 +1,8 @@
 package org.softwire.training.api.routes.v1;
 
 import org.softwire.training.api.core.PermissionsVerifier;
+import org.softwire.training.api.models.ErrorCode;
+import org.softwire.training.api.models.FailedRequestException;
 import org.softwire.training.api.models.RegionSummaryReportApiModel;
 import org.softwire.training.db.daos.RegionSummaryReportsDao;
 import org.softwire.training.db.daos.UsersDao;
@@ -36,6 +38,8 @@ public class RegionSummaryReportsRoutes extends ReportsRoutesBase<RegionSummaryR
     protected RegionSummaryReport validateThenMap(RegionSummaryReportApiModel apiModel) {
         // Ignore any supplied report time
         LocalDateTime reportTimeUtc = LocalDateTime.now(ZoneOffset.UTC);
+
+        validateStatusCode(apiModel.getStatus());
 
         RegionSummaryReport model = new RegionSummaryReport();
         model.setAgentId(apiModel.getAgentId());
