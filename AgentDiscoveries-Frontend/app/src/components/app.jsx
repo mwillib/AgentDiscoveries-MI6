@@ -19,8 +19,14 @@ import RegionForm from './admin/region-form';
 import UserForm from './admin/user-form';
 import Error from './error';
 
+import { apiPost } from './utilities/request-helper';
+
 export default class App extends React.Component {
     render() {
+
+        //Check for valid token
+        apiPost('', {});
+
         return (
             <React.Fragment>
                 <Router>
