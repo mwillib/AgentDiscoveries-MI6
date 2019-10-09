@@ -32,6 +32,7 @@ export default class Entities extends React.Component {
         );
     }
 
+
     renderTable () {
         if (this.state.entities.length > 0) {
             return (
@@ -46,11 +47,16 @@ export default class Entities extends React.Component {
     renderTableHeader() {
         // Only rendering the table if there is an entity.
         // In this case, use the first to extract the header labels
-        const entity = this.state.entities[0];
+
+        // loop through entities and add each to set
+        const entityArr = this.getHeaders();
+
         return (
             <thead>
                 <tr>
-                    {Object.keys(entity).map(key => <th key={key}>{key}</th>)}
+                    {entityArr.map((key) => {
+                        return <th key={key}>{key}</th>
+                    })}
                 </tr>
             </thead>
         );
@@ -62,7 +68,7 @@ export default class Entities extends React.Component {
                 {this.state.entities.map(entity => {
                     // Assume the first property is the ID, or at least unique enough to use as a key.
                     const id = Object.values(entity)[0];
-                    return <Entity key={id} entity={entity} type={this.props.api} />;
+                    return <Entity key={id} entity={entity} type={this.props.api} headers={this.getHeaders()} />;
                 })}
             </tbody>
         );
@@ -72,5 +78,13 @@ export default class Entities extends React.Component {
         apiGet(this.props.api)
             .then(results => this.setState({ entities: results }))
             .catch(errorLogAndRedirect);
+    }
+
+    getHeaders() {
+        const entitySet = new Set();
+        this.state.entities.forEach( (entity) => {
+            Object.keys(entity).forEach(key => entitySet.add(key));
+        } )
+        return [...entitySet];
     }
 }
