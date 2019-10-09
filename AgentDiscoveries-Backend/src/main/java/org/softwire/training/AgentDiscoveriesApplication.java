@@ -64,6 +64,8 @@ public class AgentDiscoveriesApplication implements Runnable {
             path("/api", () -> {
                 before("/*", tokenRoutes::validateToken);
 
+                get("/validtoken", (req, res) -> "Token is valid");
+
                 path("/legacy", () -> {
                     before("/*", (request, response) -> response.type("text/plain"));
                     path("/executivesummary", this::executivesSummaryGroup);
