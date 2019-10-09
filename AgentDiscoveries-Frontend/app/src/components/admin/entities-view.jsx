@@ -55,7 +55,7 @@ export default class Entities extends React.Component {
             <thead>
                 <tr>
                     {entityArr.map((key) => {
-                        return <th key={key}>{key}</th>
+                        return <th key={key}>{key}</th>;
                     })}
                 </tr>
             </thead>
@@ -84,7 +84,7 @@ export default class Entities extends React.Component {
         const entitySet = new Set();
         this.state.entities.forEach( (entity) => {
             Object.keys(entity).forEach(key => entitySet.add(key));
-        } )
+        } );
         return [...entitySet];
     }
 }

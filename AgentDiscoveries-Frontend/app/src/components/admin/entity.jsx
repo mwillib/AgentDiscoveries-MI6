@@ -24,9 +24,9 @@ export default class Entity extends React.Component {
     getEntityRow() {
         const headers = this.props.headers;
         return headers.map((header) => {
-            if(header == "agentId" && this.props.entity[header] == undefined) this.props.entity[header] = "N/A";
+            if(header == 'agentId' && this.props.entity[header] == undefined) this.props.entity[header] = 'N/A';
             return <td key={header}>{this.props.entity[header].toString()}</td>;
-        })
+        });
     }
 
     getEditButton() {
