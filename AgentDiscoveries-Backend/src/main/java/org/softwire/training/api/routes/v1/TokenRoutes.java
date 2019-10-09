@@ -63,10 +63,8 @@ public class TokenRoutes {
         // Use the user_id as the subject for the issued token
         TokenIssuer.IssuedToken issuedToken = tokenIssuer.generateToken(Integer.toString(user.getUserId()));
 
-        if (user.getAgentId() == null) {
-            user.setAgentId(-1);
-        }
+        boolean isAgent = user.getAgentId() != null;
 
-        return new TokenResponseApiModel(issuedToken.getToken(), issuedToken.getExpiryInstant().toString(), user.getUserId(), user.isAdmin(), user.getAgentId());
+        return new TokenResponseApiModel(issuedToken.getToken(), issuedToken.getExpiryInstant().toString(), user.getUserId(), user.isAdmin(), isAgent);
     }
 }
