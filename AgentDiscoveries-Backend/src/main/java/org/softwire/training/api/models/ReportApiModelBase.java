@@ -8,6 +8,7 @@ public class ReportApiModelBase {
     private byte status;
     private ZonedDateTime reportTime;
     private String reportBody;
+    private String reportTitle;
     private int agentId;
 
     public int getReportId() {
@@ -40,6 +41,14 @@ public class ReportApiModelBase {
 
     public void setReportBody(String reportBody) {
         this.reportBody = reportBody;
+    }
+
+    public String getReportTitle() {
+        return reportTitle;
+    }
+
+    public void setReportTitle(String reportTitle) {
+        this.reportTitle = reportTitle;
     }
 
     public int getAgentId() {
