@@ -32,7 +32,6 @@ export default class Entities extends React.Component {
         );
     }
 
-
     renderTable () {
         if (this.state.entities.length > 0) {
             return (
@@ -45,12 +44,7 @@ export default class Entities extends React.Component {
     }
 
     renderTableHeader() {
-        // Only rendering the table if there is an entity.
-        // In this case, use the first to extract the header labels
-
-        // loop through entities and add each to set
         const entityArr = this.getHeaders();
-
         return (
             <thead>
                 <tr>
