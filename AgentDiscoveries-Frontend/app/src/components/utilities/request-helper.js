@@ -62,3 +62,7 @@ function getHeaders() {
         'Content-Type': 'application/json'
     };
 }
+
+export function testToken() {
+    apiGet('validtoken');
+}
