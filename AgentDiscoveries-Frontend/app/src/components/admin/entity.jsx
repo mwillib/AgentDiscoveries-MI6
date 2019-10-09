@@ -22,8 +22,11 @@ export default class Entity extends React.Component {
     }
 
     getEntityRow() {
-        return Object.keys(this.props.entity).map(key =>
-            <td key={key}>{this.props.entity[key].toString()}</td>);
+        const headers = this.props.headers;
+        return headers.map((header) => {
+            if(this.props.entity[header] === undefined) this.props.entity[header] = 'N/A';
+            return <td key={header}>{this.props.entity[header].toString()}</td>;
+        });
     }
 
     getEditButton() {
