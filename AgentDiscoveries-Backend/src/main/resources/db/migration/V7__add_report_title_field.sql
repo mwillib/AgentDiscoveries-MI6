@@ -1,0 +1,1 @@
+ALTER TABLE location_reports ADD report_title mediumtext NOT NULL;
