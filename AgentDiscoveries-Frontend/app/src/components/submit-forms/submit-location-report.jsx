@@ -101,7 +101,7 @@ export default class LocationReportSubmit extends React.Component {
     }
 
     onReportTitleChange(event) {
-         this.setState({ reportTitle: event.target.value });
+        this.setState({ reportTitle: event.target.value });
     }
 
     onReportBodyChange(event) {
