@@ -1,0 +1,2 @@
+ALTER TABLE locations ADD longitude DECIMAL(30,28) NOT NULL;
+ALTER TABLE locations ADD latitude DECIMAL(30,28) NOT NULL;
