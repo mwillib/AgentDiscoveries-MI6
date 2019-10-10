@@ -105,4 +105,10 @@ public abstract class ReportsRoutesBase<T extends ReportApiModelBase, U extends 
                 .map(this::mapToApiModel)
                 .collect(Collectors.toList());
     }
+
+    public void validateStatusCode(int statusCode) {
+        if (statusCode > 100 || statusCode < 0) {
+            throw new FailedRequestException(ErrorCode.INVALID_INPUT, "Status code is invalid");
+        }
+    }
 }

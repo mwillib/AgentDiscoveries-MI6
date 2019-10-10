@@ -37,6 +37,8 @@ public class RegionSummaryReportsRoutes extends ReportsRoutesBase<RegionSummaryR
         // Ignore any supplied report time
         LocalDateTime reportTimeUtc = LocalDateTime.now(ZoneOffset.UTC);
 
+        validateStatusCode(apiModel.getStatus());
+
         RegionSummaryReport model = new RegionSummaryReport();
         model.setAgentId(apiModel.getAgentId());
         model.setRegionId(apiModel.getRegionId());
