@@ -12,7 +12,7 @@ export default class RegionSummariesSearch extends React.Component {
 
         this.state = {
             regionId: '',
-            userId: '',
+            agentId: '',
             fromTime: '',
             toTime: '',
 
@@ -21,7 +21,7 @@ export default class RegionSummariesSearch extends React.Component {
         };
 
         this.onRegionChange = this.onRegionChange.bind(this);
-        this.onUserChange = this.onUserChange.bind(this);
+        this.onAgentChange = this.onAgentChange.bind(this);
         this.onFromChange = this.onFromChange.bind(this);
         this.onToChange = this.onToChange.bind(this);
         this.onSubmit = this.onSubmit.bind(this);
@@ -44,11 +44,11 @@ export default class RegionSummariesSearch extends React.Component {
                             onChange={this.onRegionChange}/>
                     </FormGroup>
                     <FormGroup>
-                        <ControlLabel>User</ControlLabel>
+                        <ControlLabel>Agent</ControlLabel>
                         <FormControl type='number'
-                            placeholder='Enter user ID'
-                            value={this.state.userId}
-                            onChange={this.onUserChange}/>
+                            placeholder='Enter agent ID'
+                            value={this.state.agentId}
+                            onChange={this.onAgentChange}/>
                     </FormGroup>
                     <FormGroup className='form-inline'>
                         <ControlLabel className='rm-3'>From</ControlLabel>
@@ -73,8 +73,8 @@ export default class RegionSummariesSearch extends React.Component {
         this.setState({ regionId: event.target.value });
     }
 
-    onUserChange(event) {
-        this.setState({ userId: event.target.value });
+    onAgentChange(event) {
+        this.setState({ agentId: event.target.value });
     }
 
     onFromChange(event) {
@@ -89,7 +89,7 @@ export default class RegionSummariesSearch extends React.Component {
         event.preventDefault();
         const params = {
             regionId: this.state.regionId,
-            userId: this.state.userId,
+            agentId: this.state.agentId,
             fromTime: this.state.fromTime && moment.utc(this.state.fromTime).startOf('day').toISOString(),
             toTime: this.state.toTime && moment.utc(this.state.toTime).endOf('day').toISOString()
         };
