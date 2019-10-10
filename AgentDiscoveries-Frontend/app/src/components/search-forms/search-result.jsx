@@ -1,5 +1,6 @@
 import * as React from 'react';
 import {Panel} from 'react-bootstrap';
+import moment from 'moment-timezone';
 
 export default class SearchResult extends React.Component {
     render() {
@@ -24,8 +25,24 @@ export default class SearchResult extends React.Component {
 
     renderResultBody(result) {
         return Object.keys(result).map(key => {
-            return <p key={key} id={key}>{`${key}: ${result[key]}`}</p>;
+
+            const value = result[key];
+            let display = key + ': ' + value;
+
+            if(this.isIsoDate(value)){
+                display = key + ": " + this.formatDate(value);
+            }
+
+            return <p key={key} id={key}>{display}</p>;
         });
+    }
+
+    isIsoDate(value){
+        return moment(value, moment.ISO_8601, true).isValid();
+    }
+
+    formatDate(value){
+        return moment(value).format('YYYY-MM-DD HH:mm:ss') + ' (' + moment.tz.guess() + ')';
     }
 
     getResultsHeader(results) {
