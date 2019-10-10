@@ -1,8 +1,6 @@
 package org.softwire.training.api.routes.v1;
 
 import org.softwire.training.api.core.PermissionsVerifier;
-import org.softwire.training.api.models.ErrorCode;
-import org.softwire.training.api.models.FailedRequestException;
 import org.softwire.training.api.models.RegionSummaryReportApiModel;
 import org.softwire.training.db.daos.RegionSummaryReportsDao;
 import org.softwire.training.db.daos.UsersDao;
