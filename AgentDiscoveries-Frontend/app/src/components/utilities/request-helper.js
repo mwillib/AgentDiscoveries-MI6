@@ -63,6 +63,6 @@ function getHeaders() {
     };
 }
 
-export function testToken() {
+export function checkToken() {
     apiGet('validtoken');
 }

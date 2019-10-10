@@ -38,14 +38,14 @@ export default class RegionSummariesSearch extends React.Component {
 
                     <FormGroup>
                         <ControlLabel>Region</ControlLabel>
-                        <FormControl type='text'
+                        <FormControl type='number'
                             placeholder='Enter region ID'
                             value={this.state.regionId}
                             onChange={this.onRegionChange}/>
                     </FormGroup>
                     <FormGroup>
                         <ControlLabel>User</ControlLabel>
-                        <FormControl type='text'
+                        <FormControl type='number'
                             placeholder='Enter user ID'
                             value={this.state.userId}
                             onChange={this.onUserChange}/>
@@ -70,11 +70,11 @@ export default class RegionSummariesSearch extends React.Component {
     }
 
     onRegionChange(event) {
-        this.setState({ regionId: parseInt(event.target.value) });
+        this.setState({ regionId: event.target.value });
     }
 
     onUserChange(event) {
-        this.setState({ userId: parseInt(event.target.value) });
+        this.setState({ userId: event.target.value });
     }
 
     onFromChange(event) {
@@ -87,7 +87,6 @@ export default class RegionSummariesSearch extends React.Component {
 
     onSubmit(event) {
         event.preventDefault();
-
         const params = {
             regionId: this.state.regionId,
             userId: this.state.userId,
