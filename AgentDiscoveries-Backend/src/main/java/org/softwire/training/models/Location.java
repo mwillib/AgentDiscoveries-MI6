@@ -9,6 +9,8 @@ public class Location {
     private int locationId;
     private String siteName;
     private String location;
+    private double longitude;
+    private double latitude;
     private String timeZone;
     private Integer regionId; // Nullable
 
@@ -39,6 +41,24 @@ public class Location {
 
     public void setLocation(String location) {
         this.location = location;
+    }
+
+    @Column(name = "longitude", length = 100, nullable = false)
+    public double getLongitude() {
+        return longitude;
+    }
+
+    public void setLongitude(double longitude) {
+        this.longitude = longitude;
+    }
+
+    @Column(name = "latitude", length = 100, nullable = false)
+    public double getLatitude() {
+        return latitude;
+    }
+
+    public void setLatitude(double latitude) {
+        this.latitude = latitude;
     }
 
     @Column(name = "time_zone", length = 30, nullable = false)
