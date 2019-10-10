@@ -26,13 +26,23 @@ export default class SearchResult extends React.Component {
     renderResultBody(result) {
         return Object.keys(result).map(key => {
 
-            if(moment(result[key], moment.ISO_8601, true).isValid()){
-                result[key] = moment(result[key]).format('YYYY-MM-DD HH:mm:ss');
-                return <p key={key} id={key}>{`${key}: ${result[key]}`} ({moment.tz.guess()})</p>;
-            };
+            const value = result[key];
+            let display = key + ': ' + value;
 
-            return <p key={key} id={key}>{`${key}: ${result[key]}`}</p>;
+            if(this.isIsoDate(value)){
+                display = this.formatDate(value);
+            }
+
+            return <p key={key} id={key}>{display}</p>;
         });
+    }
+
+    isIsoDate(value){
+        return moment(value, moment.ISO_8601, true).isValid();
+    }
+
+    formatDate(value){
+        return moment(value).format('YYYY-MM-DD HH:mm:ss') + '(' + moment.tz.guess() + ')';
     }
 
     getResultsHeader(results) {
