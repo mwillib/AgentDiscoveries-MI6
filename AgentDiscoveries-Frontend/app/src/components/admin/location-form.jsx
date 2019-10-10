@@ -10,6 +10,8 @@ export default class LocationForm extends React.Component {
         this.state = {
             siteName: '',
             location: '',
+            longitude: '',
+            latitude: '',
             timeZone: '',
             regionId: '',
 
@@ -18,6 +20,8 @@ export default class LocationForm extends React.Component {
 
         this.onSiteChange = this.onSiteChange.bind(this);
         this.onLocationChange = this.onLocationChange.bind(this);
+        this.onLongitudeChange = this.onLongitudeChange.bind(this);
+        this.onLatitudeChange = this.onLatitudeChange.bind(this);
         this.onTimeZoneChange = this.onTimeZoneChange.bind(this);
         this.onRegionIdChange = this.onRegionIdChange.bind(this);
         this.onSubmit = this.onSubmit.bind(this);
@@ -51,6 +55,20 @@ export default class LocationForm extends React.Component {
                                 onChange={this.onLocationChange}/>
                         </FormGroup>
                         <FormGroup>
+                            <ControlLabel>Longitude</ControlLabel>
+                            <FormControl type='number' required
+                                placeholder='01.234567'
+                                value={this.state.longitude}
+                                onChange={this.onLongitudeChange}/>
+                        </FormGroup>
+                        <FormGroup>
+                            <ControlLabel>Latitude</ControlLabel>
+                            <FormControl type='number' required
+                                placeholder='01.234567'
+                                value={this.state.latitude}
+                                onChange={this.onLatitudeChange}/>
+                        </FormGroup>
+                        <FormGroup>
                             <ControlLabel>Time Zone</ControlLabel>
                             <FormControl type='text' required
                                 placeholder='Enter time zone (e.g. "Europe/London")'
@@ -79,6 +97,14 @@ export default class LocationForm extends React.Component {
         this.setState({ location: event.target.value });
     }
 
+    onLongitudeChange(event) {
+        this.setState({ longitude: event.target.value });
+    }
+
+    onLatitudeChange(event) {
+        this.setState({ latitude: event.target.value });
+    }
+
     onTimeZoneChange(event) {
         this.setState({ timeZone: event.target.value });
     }
@@ -93,6 +119,8 @@ export default class LocationForm extends React.Component {
         const body = {
             siteName: this.state.siteName,
             location: this.state.location,
+            longitude: this.state.longitude,
+            latitude: this.state.latitude,
             timeZone: this.state.timeZone,
             regionId: this.state.regionId ? this.state.regionId : null
         };
