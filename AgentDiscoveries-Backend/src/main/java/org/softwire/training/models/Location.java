@@ -9,8 +9,8 @@ public class Location {
     private int locationId;
     private String siteName;
     private String location;
-    private Double longitude;
-    private Double latitude;
+    private double longitude;
+    private double latitude;
     private String timeZone;
     private Integer regionId; // Nullable
 
