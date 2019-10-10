@@ -33,6 +33,10 @@ body {
   margin-bottom: 0.75rem;
 }
 
+textarea {
+    resize: none;
+}
+
 .overlay {
   position: absolute;
   top: 0;
