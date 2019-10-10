@@ -13,7 +13,7 @@ public class ReportTitleSearchCriterion extends ReportSearchCriterion {
     }
 
     @Override
-    public String getSqlForWhereClause() { return "report_title = :" + REPORT_TITLE_BINDING_NAME; }
+    public String getSqlForWhereClause() { return "report_title LIKE CONCAT('%', :" + REPORT_TITLE_BINDING_NAME + ",'%')"; }
 
     @Override
     public Map<String, Object> getBindingsForSql() {
