@@ -30,7 +30,7 @@ export default class SearchResult extends React.Component {
             let display = key + ': ' + value;
 
             if(this.isIsoDate(value)){
-                display = key + ": " + this.formatDate(value);
+                display = key + ': ' + this.formatDate(value);
             }
 
             return <p key={key} id={key}>{display}</p>;
