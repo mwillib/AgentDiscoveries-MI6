@@ -26,24 +26,25 @@ export default class TodaysCodePage extends React.Component {
                 </div>
 
                 <div className="row">
-                    <div className="col-md-2 col-md-offset-1 text-center timezone">
+                    <div className="col-sm-2 col-sm-offset-1 text-center timezone">
                         <h2><span>NEW YORK</span><br/>18:00</h2>
                     </div>
-                    <div className="col-md-2 text-center timezone">
+                    <div className="col-sm-2 text-center timezone">
                         <h2><span>LONDON</span><br/>18:00</h2>
                     </div>
-                    <div className="col-md-2 text-center timezone">
+                    <div className="col-sm-2 text-center timezone">
                         <h2><span>LOS ANGELES</span><br/>18:00</h2>
                     </div>
-                    <div className="col-md-2 text-center timezone">
+                    <div className="col-sm-2 text-center timezone">
                         <h2><span>TOKYO</span><br/>18:00</h2>
                     </div>
-                    <div className="col-md-2 text-center timezone">
+                    <div className="col-sm-2 text-center timezone">
                         <h2><span>MOSCOW</span><br/>18:00</h2>
                     </div>
                 </div>
 
-                <div className='col-md-8 col-md-offset-2'>
+                <div className='col-md-8 col-md-offset-2 text-center'>
+                    <Button className="message-btn">Encode Message</Button>
                     <Form>
                         <h3>Encode/decode message with today's secret</h3>
 
