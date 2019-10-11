@@ -19,29 +19,53 @@ export default class TodaysCodePage extends React.Component {
 
     render() {
         return (
-            <div className='col-md-8 col-md-offset-2'>
-                <Form>
+            <div className="container">
 
-                    <h3>Encode/decode message with today's secret</h3>
+                <div className="text-center">
+                    <h1 className="title">AGENT <span>DISCOVERIES</span></h1>
+                </div>
 
-                    <FormGroup>
-                        <ControlLabel>Message</ControlLabel>
-                        <FormControl type='text' required
-                            id='message-input'
-                            componentClass='textarea' rows={6}
-                            placeholder='Enter message'
-                            value={this.state.message}
-                            onChange={this.onChange}/>
-                    </FormGroup>
+                <div className="row">
+                    <div className="col-md-2 col-md-offset-1 text-center timezone">
+                        <h2><span>NEW YORK</span><br/>18:00</h2>
+                    </div>
+                    <div className="col-md-2 text-center timezone">
+                        <h2><span>LONDON</span><br/>18:00</h2>
+                    </div>
+                    <div className="col-md-2 text-center timezone">
+                        <h2><span>LOS ANGELES</span><br/>18:00</h2>
+                    </div>
+                    <div className="col-md-2 text-center timezone">
+                        <h2><span>TOKYO</span><br/>18:00</h2>
+                    </div>
+                    <div className="col-md-2 text-center timezone">
+                        <h2><span>MOSCOW</span><br/>18:00</h2>
+                    </div>
+                </div>
 
-                    <Button id="encode-button" className='rm-3' type='submit' onClick={this.handleEncode}>Encode</Button>
-                    <Button id="decode-button" type='submit' onClick={this.handleDecode}>Decode</Button>
-                </Form>
+                <div className='col-md-8 col-md-offset-2'>
+                    <Form>
+                        <h3>Encode/decode message with today's secret</h3>
+
+                        <FormGroup>
+                            <ControlLabel>Message</ControlLabel>
+                            <FormControl type='text' required
+                                id='message-input'
+                                componentClass='textarea' rows={6}
+                                placeholder='Enter message'
+                                value={this.state.message}
+                                onChange={this.onChange}/>
+                        </FormGroup>
+
+                        <Button id="encode-button" className='rm-3' type='submit' onClick={this.handleEncode}>Encode</Button>
+                        <Button id="decode-button" type='submit' onClick={this.handleDecode}>Decode</Button>
+                    </Form>
 
 
-                <div id="code-result">
-                    {this.state.result ? <h3>Result</h3> : ''}
-                    {this.state.result}
+                    <div id="code-result">
+                        {this.state.result ? <h3>Result</h3> : ''}
+                        {this.state.result}
+                    </div>
                 </div>
             </div>
 
