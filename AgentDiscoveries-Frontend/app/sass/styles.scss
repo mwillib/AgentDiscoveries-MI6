@@ -1,8 +1,7 @@
 @import url('https://fonts.googleapis.com/css?family=Roboto+Condensed:400,700&display=swap');
 
 $background-gif: 'https://apollocurrency.com/static/media/document-gif.1d30b5a0.gif';
-$main-overlay: rgba(0, 0, 0, 0.65);
-$secondary-overlay: rgba(0, 0, 0, 0.9);
+$main-overlay: rgba(0, 0, 0, 0.7);
 $overlay-color: rgb(247, 197, 89);
 $font: 'Roboto Condensed', sans-serif;
 $main-color: #009fff;
@@ -22,8 +21,10 @@ body {
 }
 
 .navbar-inverse {
-    background-color: transparent;
+    background-color: $main-overlay;
     border: 1px solid #fff;
+    border-left: none;
+    border-right: none;
     .navbar-brand {
         color: $main-color;
     }
@@ -36,7 +37,7 @@ body {
 }
 
 .dropdown-menu {
-    background-color: $secondary-overlay;
+    background-color: $main-overlay;
     li > a {
         color: #fff;
         &:hover {
@@ -72,6 +73,10 @@ body {
   margin-bottom: 0.75rem;
 }
 
+.login-wrapper {
+    padding-top: 15vh;
+}
+
 .title {
     margin: 12vh 0;
     span {
@@ -85,9 +90,11 @@ body {
 
 .message-btn {
     margin: 8vh 0 0 0;
-    &:focus {
-    background-color: transparent;
-    }
+}
+
+.encode-form {
+margin: 12vh 0 0 0;
+    transition: all .5s ease-in-out;
 }
 
 input:-webkit-autofill,
@@ -114,6 +121,17 @@ textarea {
     &:hover {
         background-color: $main-color;
         border-color: #000;
+    }
+    &:focus {
+        background-color: transparent;
+     }
+}
+
+.panel {
+    background-color: transparent;
+    .panel-heading {
+        background-color: $main-overlay;
+        color: #fff;
     }
 }
 
