@@ -1,8 +1,15 @@
 import * as React from 'react';
 import {Panel} from 'react-bootstrap';
 import moment from 'moment-timezone';
+import jsPDF from 'jspdf';
 
 export default class SearchResult extends React.Component {
+    constructor(props) {
+        super(props);
+
+        this.jsPdfGenerator = this.jsPdfGenerator.bind(this);
+    }
+
     render() {
         return (
             <div className='results'>
@@ -13,10 +20,11 @@ export default class SearchResult extends React.Component {
     }
 
     renderResults(results) {
+    console.log(this.props.results);
         return results.map((result, index) => {
             return (
                 <Panel key={index}>
-                    <Panel.Heading>Result</Panel.Heading>
+                    <Panel.Heading>Result<button onClick={this.jsPdfGenerator}>Download PDF</button></Panel.Heading>
                     <Panel.Body>{this.renderResultBody(result)}</Panel.Body>
                 </Panel>
             );
@@ -52,4 +60,12 @@ export default class SearchResult extends React.Component {
                 : <h3>{`${results.length} results`}</h3>)
             : '';
     }
+
+    jsPdfGenerator() {
+        const doc = new jsPDF('p', 'pt', 'a4');
+        var header = [1,2,3,4];
+        doc.text(20, 20, "HELLO");
+        doc.save('generated.pdf');
+    }
+
 }

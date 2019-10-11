@@ -81,3 +81,9 @@ textarea {
 .profile-img-container:hover .overlay {
   opacity: 0.8;
 }
+
+.panel-default>.panel-heading {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
