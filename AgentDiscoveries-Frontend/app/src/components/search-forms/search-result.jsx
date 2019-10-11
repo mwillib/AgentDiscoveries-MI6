@@ -30,7 +30,7 @@ export default class SearchResult extends React.Component {
             let display = key + ': ' + value;
 
             if(this.isIsoDate(value)){
-                display = this.formatDate(value);
+                display = key + ": " + this.formatDate(value);
             }
 
             return <p key={key} id={key}>{display}</p>;
@@ -42,7 +42,7 @@ export default class SearchResult extends React.Component {
     }
 
     formatDate(value){
-        return moment(value).format('YYYY-MM-DD HH:mm:ss') + '(' + moment.tz.guess() + ')';
+        return moment(value).format('YYYY-MM-DD HH:mm:ss') + ' (' + moment.tz.guess() + ')';
     }
 
     getResultsHeader(results) {

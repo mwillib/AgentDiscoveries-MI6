@@ -35,7 +35,7 @@ public class WebDriverHelper {
     }
 
     private static WebDriver prepareDriver() {
-        ChromeDriverManager.getInstance().setup();
+        ChromeDriverManager.getInstance().version("77.0.3865.10").setup();
 
         ChromeOptions options = new ChromeOptions();
         if (HEADLESS) {

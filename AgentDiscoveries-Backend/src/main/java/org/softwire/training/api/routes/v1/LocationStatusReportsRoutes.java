@@ -91,6 +91,10 @@ public class LocationStatusReportsRoutes extends ReportsRoutesBase<LocationStatu
             searchCriteria.add(new AgentCallSignSearchCriterion(queryMap.get("callSign").value()));
         }
 
+        if (!isNullOrEmpty(queryMap.get("reportTitle").value())) {
+            searchCriteria.add(new ReportTitleSearchCriterion(queryMap.get("reportTitle").value()));
+        }
+
         if (!isNullOrEmpty(queryMap.get("locationId").value())) {
             searchCriteria.add(new LocationIdSearchCriterion(queryMap.get("locationId").integerValue()));
         }
