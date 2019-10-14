@@ -1,7 +1,10 @@
 import * as React from 'react';
 import {Panel} from 'react-bootstrap';
 import moment from 'moment-timezone';
+// import { render } from "react-dom";
+// import { renderToString } from "react-dom/server";
 import jsPDF from 'jspdf';
+import 'jspdf-autotable';
 
 export default class SearchResult extends React.Component {
     constructor(props) {
@@ -20,11 +23,10 @@ export default class SearchResult extends React.Component {
     }
 
     renderResults(results) {
-    console.log(this.props.results);
         return results.map((result, index) => {
             return (
                 <Panel key={index}>
-                    <Panel.Heading>Result<button onClick={this.jsPdfGenerator}>Download PDF</button></Panel.Heading>
+                    <Panel.Heading>Result</Panel.Heading>
                     <Panel.Body>{this.renderResultBody(result)}</Panel.Body>
                 </Panel>
             );
@@ -56,16 +58,18 @@ export default class SearchResult extends React.Component {
     getResultsHeader(results) {
         return results.length > 0
             ? (results.length === 1
-                ? <h3>{`${results.length} result`}</h3>
-                : <h3>{`${results.length} results`}</h3>)
+                ? <div className="result-heading"><h3>{`${results.length} result`}</h3><button onClick={this.jsPdfGenerator}>Download PDF</button></div>
+                : <div className="result-heading"><h3>{`${results.length} result`}</h3><button onClick={this.jsPdfGenerator}>Download PDF</button></div>)
             : '';
     }
 
     jsPdfGenerator() {
-        const doc = new jsPDF('p', 'pt', 'a4');
-        var header = [1,2,3,4];
-        doc.text(20, 20, "HELLO");
-        doc.save('generated.pdf');
+       const doc = new jsPDF();
+       const col = ["Region ID","Report ID","Status","Report Time","Report Body","Agent ID"];
+       const rows = [];
+       this.props.results.map(element => rows.push([element.regionId, element.reportId, element.status, element.reportTime, element.reportBody, element.agentId]));
+       doc.autoTable(col, rows, { startY: 10 });
+       doc.save('Results.pdf');
     }
 
 }

@@ -127,6 +127,12 @@ textarea {
      }
 }
 
+.result-heading {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
 .panel {
     background-color: transparent;
     .panel-heading {

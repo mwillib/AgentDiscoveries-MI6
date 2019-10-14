@@ -25,19 +25,17 @@ export default class TodaysCodePage extends React.Component {
     }
 
     render() {
-           var london = moment.tz("Europe/London");
-           var losAngeles = london.clone().tz("America/Los_Angeles");
-           var newYork = london.clone().tz("America/New_York");
-           var tokyo = london.clone().tz("Asia/Tokyo");
-           var moscow = london.clone().tz("Europe/Moscow");
+        var london = moment.tz('Europe/London');
+        var losAngeles = london.clone().tz('America/Los_Angeles');
+        var newYork = london.clone().tz('America/New_York');
+        var tokyo = london.clone().tz('Asia/Tokyo');
+        var moscow = london.clone().tz('Europe/Moscow');
 
         return (
             <div className="container">
-
                 <div className="text-center">
                     <h1 className="title">AGENT <span>DISCOVERIES</span></h1>
                 </div>
-
                 <div className="row">
                     <div className="col-sm-2 col-sm-offset-1 text-center timezone">
                         <h2><span>NEW YORK</span><br/>{newYork.format('H:mm')}</h2>
@@ -55,46 +53,38 @@ export default class TodaysCodePage extends React.Component {
                         <h2><span>MOSCOW</span><br/>{moscow.format('H:mm')}</h2>
                     </div>
                 </div>
-
                 <div className='col-md-8 col-md-offset-2 text-center'>
-                       {this.state.buttonHidden ? null :
-                    <Button className="message-btn" onClick={this.slideDown}>Encode Message</Button>}
-
+                    {this.state.buttonHidden ? null :
+                        <Button className="message-btn" onClick={this.slideDown}>Encode Message</Button>}
                     <SlideDown className={'my-dropdown-slidedown'}>
                         {this.state.showMessage ?
-                        <Form className="encode-form">
-                            <h3>Encode/decode message with today's secret</h3>
-
-                            <FormGroup>
-                                <ControlLabel>Message</ControlLabel>
-                                <FormControl type='text' required
-                                    id='message-input'
-                                    componentClass='textarea' rows={6}
-                                    placeholder='Enter message'
-                                    value={this.state.message}
-                                    onChange={this.onChange}/>
-                            </FormGroup>
-
-                            <Button id="encode-button" className='rm-3' type='submit' onClick={this.handleEncode}>Encode</Button>
-                            <Button id="decode-button" type='submit' onClick={this.handleDecode}>Decode</Button>
-                        </Form> : null}
+                            <Form className="encode-form">
+                                <h3>Encode/decode message with today's secret</h3>
+                                <FormGroup>
+                                    <ControlLabel>Message</ControlLabel>
+                                    <FormControl type='text' required
+                                        id='message-input'
+                                        componentClass='textarea' rows={6}
+                                        placeholder='Enter message'
+                                        value={this.state.message}
+                                        onChange={this.onChange}/>
+                                </FormGroup>
+                                <Button id="encode-button" className='rm-3' type='submit' onClick={this.handleEncode}>Encode</Button>
+                                <Button id="decode-button" type='submit' onClick={this.handleDecode}>Decode</Button>
+                            </Form> : null}
                     </SlideDown>
-
-
                     <div id="code-result">
                         {this.state.result ? <h3>Result</h3> : ''}
                         {this.state.result}
                     </div>
                 </div>
             </div>
-
         );
     }
 
-
     slideDown(event) {
-        this.setState({showMessage: true})
-        this.setState({buttonHidden: true})
+        this.setState({showMessage: true});
+        this.setState({buttonHidden: true});
     }
 
     onChange(event) {
