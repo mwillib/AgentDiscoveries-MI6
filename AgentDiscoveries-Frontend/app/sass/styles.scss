@@ -17,7 +17,7 @@ body {
 
 #react-root {
     background-color: $main-overlay;
-    height: 100vh;
+    min-height: 100vh;
 }
 
 .navbar-inverse {
@@ -93,8 +93,12 @@ body {
 }
 
 .encode-form {
-margin: 12vh 0 0 0;
+    margin: 12vh 0 0 0;
     transition: all .5s ease-in-out;
+}
+
+#code-result {
+    margin-bottom: 12vh;
 }
 
 input:-webkit-autofill,
