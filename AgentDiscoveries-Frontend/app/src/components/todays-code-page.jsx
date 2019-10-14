@@ -40,16 +40,16 @@ export default class TodaysCodePage extends React.Component {
                     <div className="col-sm-2 col-sm-offset-1 text-center timezone">
                         <h2><span>NEW YORK</span><br/>{newYork.format('H:mm')}</h2>
                     </div>
-                    <div className="col-sm-2 text-center timezone">
+                    <div className='col-sm-2 text-center timezone'>
                         <h2><span>LONDON</span><br/>{london.format('H:mm')}</h2>
                     </div>
-                    <div className="col-sm-2 text-center timezone">
+                    <div className='col-sm-2 text-center timezone'>
                         <h2><span>LOS ANGELES</span><br/>{losAngeles.format('H:mm')}</h2>
                     </div>
-                    <div className="col-sm-2 text-center timezone">
+                    <div className='col-sm-2 text-center timezone'>
                         <h2><span>TOKYO</span><br/>{tokyo.format('H:mm')}</h2>
                     </div>
-                    <div className="col-sm-2 text-center timezone">
+                    <div className='col-sm-2 text-center timezone'>
                         <h2><span>MOSCOW</span><br/>{moscow.format('H:mm')}</h2>
                     </div>
                 </div>
@@ -59,6 +59,7 @@ export default class TodaysCodePage extends React.Component {
                     <SlideDown className={'my-dropdown-slidedown'}>
                         {this.state.showMessage ?
                             <Form className="encode-form">
+
                                 <h3>Encode/decode message with today's secret</h3>
                                 <FormGroup>
                                     <ControlLabel>Message</ControlLabel>
@@ -74,6 +75,7 @@ export default class TodaysCodePage extends React.Component {
                             </Form> : null}
                     </SlideDown>
                     <div id="code-result">
+
                         {this.state.result ? <h3>Result</h3> : ''}
                         {this.state.result}
                     </div>
