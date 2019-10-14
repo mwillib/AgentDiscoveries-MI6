@@ -142,7 +142,16 @@ export default class LocationReportSubmit extends React.Component {
 
         if (this.state.sendExternal) {
             apiPost('external/reports', body)
-                .then(() => this.addMessage('Report submitted to external partner', 'info'))
+                .then(() => {
+                    this.addMessage('Report submitted to external partner', 'info')
+                    this.setState({
+                        locationId: '',
+                        status: '',
+                        reportTitle: '',
+                        reportBody: '',
+                        sendExternal: false,
+                    })
+            })
                 .catch(() => this.addMessage('Error submitting report externally, please try again later', 'danger'));
         }
     }
