@@ -20,7 +20,7 @@ export default class Login extends React.Component {
 
     render () {
         return (
-            <div className='col-md-6 col-md-offset-3'>
+            <div className='col-md-4 col-md-offset-4 login-wrapper'>
                 <Message message={this.state.message} />
                 <Form onSubmit={this.handleLogIn}>
                     <h3>Sign in</h3>
