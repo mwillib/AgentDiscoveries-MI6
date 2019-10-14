@@ -12,8 +12,8 @@ export default class TodaysCodePage extends React.Component {
         this.state = {
             message: '',
             result: '',
-            showMessage: false
-
+            showMessage: false,
+            buttonHidden: false
         };
 
         this.onChange = this.onChange.bind(this);
@@ -57,12 +57,14 @@ export default class TodaysCodePage extends React.Component {
                 </div>
 
                 <div className='col-md-8 col-md-offset-2 text-center'>
+                       {this.state.buttonHidden ? null :
+                    <Button className="message-btn" onClick={this.slideDown}>Encode Message</Button>}
 
                     <Button className='message-btn' onClick={this.slideDown}>Encode Message</Button>
 
                     <SlideDown className={'my-dropdown-slidedown'}>
                         {this.state.showMessage ?
-                        <Form>
+                        <Form className="encode-form">
                             <h3>Encode/decode message with today's secret</h3>
 
                             <FormGroup>
@@ -91,12 +93,9 @@ export default class TodaysCodePage extends React.Component {
         );
     }
 
-    hide(event) {
-        this.setState({hideButton: false});
-    }
-
     slideDown(event) {
-        this.setState({showMessage: true});
+        this.setState({showMessage: true})
+        this.setState({buttonHidden: true})
     }
 
     onChange(event) {
