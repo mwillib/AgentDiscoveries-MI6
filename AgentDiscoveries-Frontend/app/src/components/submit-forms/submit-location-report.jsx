@@ -128,7 +128,16 @@ export default class LocationReportSubmit extends React.Component {
         };
 
         apiPost('reports/locationstatuses', body)
-            .then(() => this.addMessage('Report submitted', 'info'))
+            .then(() => {
+                this.addMessage('Report submitted', 'info')
+                this.setState({
+                    locationId: '',
+                    status: '',
+                    reportTitle: '',
+                    reportBody: '',
+                    sendExternal: false,
+                })
+            })
             .catch(() => this.addMessage('Error submitting report, please try again later', 'danger'));
 
         if (this.state.sendExternal) {
