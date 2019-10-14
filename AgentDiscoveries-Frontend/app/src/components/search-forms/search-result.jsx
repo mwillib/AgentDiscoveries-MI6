@@ -1,8 +1,6 @@
 import * as React from 'react';
 import {Panel} from 'react-bootstrap';
 import moment from 'moment-timezone';
-// import { render } from "react-dom";
-// import { renderToString } from "react-dom/server";
 import jsPDF from 'jspdf';
 import 'jspdf-autotable';
 
