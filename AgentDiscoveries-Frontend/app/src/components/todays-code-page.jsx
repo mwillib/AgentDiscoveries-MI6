@@ -57,8 +57,8 @@ export default class TodaysCodePage extends React.Component {
                 </div>
 
                 <div className='col-md-8 col-md-offset-2 text-center'>
-                       {this.state.buttonHidden ? null :
-                    <Button className="message-btn" onClick={this.slideDown}>Encode Message</Button>}
+                    {this.state.buttonHidden ? null :
+                        <Button className="message-btn" onClick={this.slideDown}>Encode Message</Button>}
 
                     <Button className='message-btn' onClick={this.slideDown}>Encode Message</Button>
 
@@ -93,8 +93,8 @@ export default class TodaysCodePage extends React.Component {
     }
 
     slideDown(event) {
-        this.setState({showMessage: true})
-        this.setState({buttonHidden: true})
+        this.setState({showMessage: true});
+        this.setState({buttonHidden: true});
     }
 
     onChange(event) {
