@@ -25,40 +25,40 @@ export default class TodaysCodePage extends React.Component {
     }
 
     render() {
-           var london = moment.tz("Europe/London");
-           var losAngeles = london.clone().tz("America/Los_Angeles");
-           var newYork = london.clone().tz("America/New_York");
-           var tokyo = london.clone().tz("Asia/Tokyo");
-           var moscow = london.clone().tz("Europe/Moscow");
+        var london = moment.tz('Europe/London');
+        var losAngeles = london.clone().tz('America/Los_Angeles');
+        var newYork = london.clone().tz('America/New_York');
+        var tokyo = london.clone().tz('Asia/Tokyo');
+        var moscow = london.clone().tz('Europe/Moscow');
 
         return (
-            <div className="container">
+            <div className='container'>
 
-                <div className="text-center">
-                    <h1 className="title">AGENT <span>DISCOVERIES</span></h1>
+                <div className='text-center'>
+                    <h1 className='title'>AGENT <span>DISCOVERIES</span></h1>
                 </div>
 
-                <div className="row">
-                    <div className="col-sm-2 col-sm-offset-1 text-center timezone">
+                <div className='row'>
+                    <div className='col-sm-2 col-sm-offset-1 text-center timezone'>
                         <h2><span>NEW YORK</span><br/>{newYork.format('H:mm')}</h2>
                     </div>
-                    <div className="col-sm-2 text-center timezone">
+                    <div className='col-sm-2 text-center timezone'>
                         <h2><span>LONDON</span><br/>{london.format('H:mm')}</h2>
                     </div>
-                    <div className="col-sm-2 text-center timezone">
+                    <div className='col-sm-2 text-center timezone'>
                         <h2><span>LOS ANGELES</span><br/>{losAngeles.format('H:mm')}</h2>
                     </div>
-                    <div className="col-sm-2 text-center timezone">
+                    <div className='col-sm-2 text-center timezone'>
                         <h2><span>TOKYO</span><br/>{tokyo.format('H:mm')}</h2>
                     </div>
-                    <div className="col-sm-2 text-center timezone">
+                    <div className='col-sm-2 text-center timezone'>
                         <h2><span>MOSCOW</span><br/>{moscow.format('H:mm')}</h2>
                     </div>
                 </div>
 
                 <div className='col-md-8 col-md-offset-2 text-center'>
 
-                    <Button className="message-btn" onClick={this.slideDown}>Encode Message</Button>
+                    <Button className='message-btn' onClick={this.slideDown}>Encode Message</Button>
 
                     <SlideDown className={'my-dropdown-slidedown'}>
                         {this.state.showMessage ?
@@ -73,15 +73,15 @@ export default class TodaysCodePage extends React.Component {
                                     placeholder='Enter message'
                                     value={this.state.message}
                                     onChange={this.onChange}/>
-                            </FormGroup>
+                        </FormGroup>
 
-                            <Button id="encode-button" className='rm-3' type='submit' onClick={this.handleEncode}>Encode</Button>
-                            <Button id="decode-button" type='submit' onClick={this.handleDecode}>Decode</Button>
+                        <Button id='encode-button' className='rm-3' type='submit' onClick={this.handleEncode}>Encode</Button>
+                        <Button id='decode-button' type='submit' onClick={this.handleDecode}>Decode</Button>
                         </Form> : null}
                     </SlideDown>
 
 
-                    <div id="code-result">
+                    <div id='code-result'>
                         {this.state.result ? <h3>Result</h3> : ''}
                         {this.state.result}
                     </div>
@@ -92,11 +92,11 @@ export default class TodaysCodePage extends React.Component {
     }
 
     hide(event) {
-        this.setState({hideButton: false})
+        this.setState({hideButton: false});
     }
 
     slideDown(event) {
-        this.setState({showMessage: true})
+        this.setState({showMessage: true});
     }
 
     onChange(event) {
