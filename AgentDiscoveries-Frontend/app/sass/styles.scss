@@ -143,10 +143,6 @@ thead {
     color: $main-color;
 }
 
-.table-striped>tbody>tr:nth-of-type(odd) {
-    background-color: transparent;
-}
-
 .overlay {
   position: absolute;
   top: 0;
