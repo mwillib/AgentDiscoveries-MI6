@@ -64,22 +64,21 @@ export default class TodaysCodePage extends React.Component {
 
                     <SlideDown className={'my-dropdown-slidedown'}>
                         {this.state.showMessage ?
-                        <Form className="encode-form">
-                            <h3>Encode/decode message with today's secret</h3>
+                            <Form>
+                                <h3>Encode/decode message with today's secret</h3>
+                                <FormGroup>
+                                    <ControlLabel>Message</ControlLabel>
+                                    <FormControl type='text' required
+                                        id='message-input'
+                                        componentClass='textarea' rows={6}
+                                        placeholder='Enter message'
+                                        value={this.state.message}
+                                        onChange={this.onChange}/>
+                                </FormGroup>
 
-                            <FormGroup>
-                                <ControlLabel>Message</ControlLabel>
-                                <FormControl type='text' required
-                                    id='message-input'
-                                    componentClass='textarea' rows={6}
-                                    placeholder='Enter message'
-                                    value={this.state.message}
-                                    onChange={this.onChange}/>
-                        </FormGroup>
-
-                        <Button id='encode-button' className='rm-3' type='submit' onClick={this.handleEncode}>Encode</Button>
-                        <Button id='decode-button' type='submit' onClick={this.handleDecode}>Decode</Button>
-                        </Form> : null}
+                                <Button id='encode-button' className='rm-3' type='submit' onClick={this.handleEncode}>Encode</Button>
+                                <Button id='decode-button' type='submit' onClick={this.handleDecode}>Decode</Button>
+                            </Form> : null}
                     </SlideDown>
 
 
