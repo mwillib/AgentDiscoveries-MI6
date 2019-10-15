@@ -7,9 +7,9 @@ public class TokenResponseApiModel {
     private int userId;
     private boolean isAdmin;
     private boolean isAgent;
-    private int agentId;
+    private Integer agentId;
 
-    public TokenResponseApiModel(String token, String expires, int userId, boolean isAdmin, boolean isAgent, int agentId) {
+    public TokenResponseApiModel(String token, String expires, int userId, boolean isAdmin, boolean isAgent, Integer agentId) {
         this.token = token;
         this.userId = userId;
         this.expires = expires;
