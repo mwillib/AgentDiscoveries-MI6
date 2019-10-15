@@ -38,6 +38,8 @@ public class DailyMessageIT {
         driver.get(TARGET_ADDRESS);
         LoginHelper.ensureLoggedIn(driver);
         driver.get(TARGET_ADDRESS + "/#/message");
+        WebElement encodeButtonShow = driver.findElement(By.id("encode-button-show"));
+        encodeButtonShow.click();
 
         WebElement messageInput = driver.findElement(By.id("message-input"));
         messageInput.sendKeys(plaintext);

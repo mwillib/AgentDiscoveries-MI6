@@ -45,7 +45,7 @@ export default class NavigationBar extends React.Component {
                                     src={logo}
                                     alt='Agent Discoveries'/>
                             </span>
-                            <span>Agent Discoveries</span>
+                            <span>AGENT DISCOVERIES</span>
                         </Link>
                     </Navbar.Brand>
                     <Navbar.Toggle/>
