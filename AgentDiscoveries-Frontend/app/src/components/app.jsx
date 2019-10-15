@@ -14,6 +14,7 @@ import LocationReportSubmit from './submit-forms/submit-location-report';
 import RegionSummarySubmit from './submit-forms/submit-region-summary';
 import Entities from './admin/entities-view';
 import UsersTable from './admin/usersTable';
+import RegionsTable from './admin/RegionsTable'
 import TodaysCodePage from './todays-code-page';
 import LocationForm from './admin/location-form';
 import RegionForm from './admin/region-form';
@@ -39,7 +40,7 @@ export default class App extends React.Component {
                         <Route path='/submit/region' render={() => <Page><RegionSummarySubmit /></Page>} />
 
                         <Route path='/admin/locations' exact render={() => <Page><Entities api='locations' key='locations'/></Page>} />
-                        <Route path='/admin/regions' exact render={() => <Page><Entities api='regions' key='regions'/></Page>} />
+                        <Route path='/admin/regions' exact render={() => <Page><RegionsTable/></Page>} />
                         <Route path='/admin/users' exact render={() => <Page><UsersTable/></Page>} />
 
                         <Route path='/admin/locations/add' render={() => <Page><LocationForm/></Page>} />

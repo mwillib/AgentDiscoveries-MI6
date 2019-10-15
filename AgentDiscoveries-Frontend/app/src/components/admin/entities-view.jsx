@@ -1,6 +1,6 @@
 import * as React from 'react';
 import Entity from './entity';
-import {Button, Table} from 'react-bootstrap';
+import {Table} from 'react-bootstrap';
 
 export default class Entities extends React.Component {
 

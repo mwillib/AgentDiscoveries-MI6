@@ -5,7 +5,7 @@ import {errorLogAndRedirect} from '../error';
 import {Button} from 'react-bootstrap';
 import {Link} from 'react-router-dom';
 
-export default class UsersTable extends React.Component {
+export default class RegionsTable extends React.Component {
     constructor (props) {
         super(props);
 
@@ -19,18 +19,21 @@ export default class UsersTable extends React.Component {
     }
 
     render() {
+
         return (
 
             <div className='col-md-8 col-md-offset-2'>
-                <h3>Users</h3>
-                <Link to={`/admin/users/add`}>
+                <h3>Regions</h3>
+                <Link to={`/admin/regions/add`}>
                     <Button type='button'>
-                        Add User
+                        Add Region
                     </Button>
                 </Link>
-                <Entities api='users' key='users' entities={this.state.entities}/>
+                <Entities api='regions' key='regions' entities={this.state.entities}/>
             </div>
+
         );
+
     }
 
     loadEntities() {
