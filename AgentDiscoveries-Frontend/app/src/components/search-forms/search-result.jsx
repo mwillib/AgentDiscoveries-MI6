@@ -56,8 +56,8 @@ export default class SearchResult extends React.Component {
     getResultsHeader(results) {
         return results.length > 0
             ? (results.length === 1
-                ? <div className="result-heading"><h3>{`${results.length} result`}</h3><button class="btn btn-default" onClick={this.jsPdfGenerator}>Download PDF</button></div>
-                : <div className="result-heading"><h3>{`${results.length} results`}</h3><button class="btn btn-default" onClick={this.jsPdfGenerator}>Download PDF</button></div>)
+                ? <div className="result-heading"><h3>{`${results.length} result`}</h3><button className='btn' onClick={this.jsPdfGenerator}>Download PDF</button></div>
+                : <div className="result-heading"><h3>{`${results.length} results`}</h3><button className='btn' onClick={this.jsPdfGenerator}>Download PDF</button></div>)
             : '';
     }
 
