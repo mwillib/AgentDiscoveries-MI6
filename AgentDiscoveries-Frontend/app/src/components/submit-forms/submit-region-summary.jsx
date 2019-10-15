@@ -96,7 +96,14 @@ export default class RegionSummarySubmit extends React.Component {
         };
 
         apiPost('reports/regionsummaries', body)
-            .then(() => this.addMessage('Report submitted', 'info'))
+            .then(() => {
+                this.addMessage('Report submitted', 'info');
+                this.setState({
+                    regionId: '',
+                    status: '',
+                    reportBody: '',
+                                       })
+            })
             .catch(() => this.addMessage('Error submitting report, please try again later', 'danger'));
     }
 
