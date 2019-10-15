@@ -66,7 +66,6 @@ export default class SearchResult extends React.Component {
        const col = Object.keys(this.props.results[0]);
        const rows = [];
        const date = new Date();
-       console.log(date.getDay());
        for( let i = 0; i < this.props.results.length; i++ ) {
             let row = [];
             Object.values(this.props.results[i]).map( elem => row.push(elem) );
