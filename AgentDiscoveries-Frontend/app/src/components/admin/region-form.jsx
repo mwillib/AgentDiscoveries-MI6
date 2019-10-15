@@ -35,7 +35,8 @@ export default class RegionForm extends React.Component {
                             <FormControl type='text' required
                                 placeholder='Enter region name'
                                 value={this.state.name}
-                                onChange={this.onNameChange}/>
+                                onChange={this.onNameChange}
+                                id="region-name"/>
                         </FormGroup>
                         <Button type='submit'>Submit</Button>
                     </Form>
