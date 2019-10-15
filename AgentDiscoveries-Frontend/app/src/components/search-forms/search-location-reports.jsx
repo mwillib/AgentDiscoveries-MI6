@@ -5,6 +5,7 @@ import moment from 'moment';
 import Message from '../message';
 import SearchResult from './search-result';
 import {apiGet} from '../utilities/request-helper';
+import {errorLogAndRedirect} from '../error';
 
 export default class LocationReportsSearch extends React.Component {
     constructor(props) {
@@ -16,7 +17,7 @@ export default class LocationReportsSearch extends React.Component {
             locationId: '',
             fromTime: '',
             toTime: '',
-
+            locations: [],
             results: [],
             message: {}
         };
@@ -29,7 +30,13 @@ export default class LocationReportsSearch extends React.Component {
         this.onSubmit = this.onSubmit.bind(this);
     }
 
+    componentDidMount() {
+        this.loadLocations();
+    }
+
     render() {
+        const locationOptions = this.state.locations.map(location => <option key={location.locationId} value={location.locationId}>{`${location.locationId} - ${location.location}`}</option>);
+        locationOptions.unshift(<option key={'default'} value={''}>{'All Locations'}</option>);
         return (
             <div className='col-md-8 col-md-offset-2'>
                 <Form onSubmit={this.onSubmit}>
@@ -53,10 +60,10 @@ export default class LocationReportsSearch extends React.Component {
                     </FormGroup>
                     <FormGroup>
                         <ControlLabel>Location</ControlLabel>
-                        <FormControl type='number'
-                            placeholder='Enter location ID'
-                            value={this.state.locationId}
-                            onChange={this.onLocationChange}/>
+                        <FormControl componentClass="select"
+                        onChange={this.onLocationChange}>
+                            {locationOptions}
+                        </FormControl>
                     </FormGroup>
                     <FormGroup className='form-inline'>
                         <ControlLabel className='rm-3'>From</ControlLabel>
@@ -96,6 +103,12 @@ export default class LocationReportsSearch extends React.Component {
         this.setState({ toTime: event.target.value });
     }
 
+    loadLocations() {
+            apiGet('locations')
+                .then(results => this.setState({ locations: results }))
+                .catch(errorLogAndRedirect);
+    }
+
     onSubmit(event) {
         event.preventDefault();
 
@@ -106,6 +119,8 @@ export default class LocationReportsSearch extends React.Component {
             fromTime: this.state.fromTime && moment.utc(this.state.fromTime).startOf('day').toISOString(),
             toTime: this.state.toTime && moment.utc(this.state.toTime).endOf('day').toISOString()
         };
+
+        console.log(this.state.locations);
 
         const url = 'reports/locationstatuses?' + QueryString.stringify(params);
 
