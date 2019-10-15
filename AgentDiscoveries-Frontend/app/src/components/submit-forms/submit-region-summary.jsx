@@ -102,7 +102,7 @@ export default class RegionSummarySubmit extends React.Component {
                     regionId: '',
                     status: '',
                     reportBody: '',
-                                       })
+                });
             })
             .catch(() => this.addMessage('Error submitting report, please try again later', 'danger'));
     }

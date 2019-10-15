@@ -62,12 +62,12 @@ export default class SearchResult extends React.Component {
     }
 
     jsPdfGenerator() {
-       const doc = new jsPDF();
-       const col = ["Region ID","Report ID","Status","Report Time","Report Body","Agent ID"];
-       const rows = [];
-       this.props.results.map(element => rows.push([element.regionId, element.reportId, element.status, element.reportTime, element.reportBody, element.agentId]));
-       doc.autoTable(col, rows, { startY: 10 });
-       doc.save('Results.pdf');
+        const doc = new jsPDF();
+        const col = ['Region ID','Report ID','Status','Report Time','Report Body','Agent ID'];
+        const rows = [];
+        this.props.results.map(element => rows.push([element.regionId, element.reportId, element.status, element.reportTime, element.reportBody, element.agentId]));
+        doc.autoTable(col, rows, { startY: 10 });
+        doc.save('Results.pdf');
     }
 
 }
