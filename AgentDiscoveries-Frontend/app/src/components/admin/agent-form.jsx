@@ -20,35 +20,40 @@ export default class AgentForm extends React.Component {
                     <FormControl type='text' required
                         placeholder='Enter first name'
                         value={this.props.agent.firstName}
-                        onChange={this.onFirstNameUpdate}/>
+                        onChange={this.onFirstNameUpdate}
+                        id="first-name"/>
                 </FormGroup>
                 <FormGroup>
                     <ControlLabel>Last Name</ControlLabel>
                     <FormControl type='text' required
                         placeholder='Enter last name'
                         value={this.props.agent.lastName}
-                        onChange={this.onLastNameUpdate}/>
+                        onChange={this.onLastNameUpdate}
+                        id="last-name"/>
                 </FormGroup>
                 <FormGroup>
                     <ControlLabel>Date Of Birth</ControlLabel>
                     <FormControl type='date' required
                         placeholder='Enter date of birth'
                         value={this.props.agent.dateOfBirth}
-                        onChange={this.onDateOfBirthUpdate}/>
+                        onChange={this.onDateOfBirthUpdate}
+                        id="date-of-birth"/>
                 </FormGroup>
                 <FormGroup>
                     <ControlLabel>Rank</ControlLabel>
                     <FormControl type='number' required
                         placeholder='Enter numeric rank'
                         value={this.props.agent.rank}
-                        onChange={this.onRankUpdate}/>
+                        onChange={this.onRankUpdate}
+                        id="rank"/>
                 </FormGroup>
                 <FormGroup>
                     <ControlLabel>Call Sign</ControlLabel>
                     <FormControl type='text' required
                         placeholder='Enter call sign'
                         value={this.props.agent.callSign}
-                        onChange={this.onCallSignUpdate}/>
+                        onChange={this.onCallSignUpdate}
+                        id="callsign"/>
                 </FormGroup>
             </div>
         );
