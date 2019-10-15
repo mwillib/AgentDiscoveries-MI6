@@ -63,13 +63,10 @@ public class AgentsRoutes {
     public Agent updateCallSign(Request req, Response res, int id) {
         permissionsVerifier.verifyIsAdminOrRelevantAgent(req, id);
 
-//        Agent agent = JsonRequestUtils.readBodyAsType(req, Agent.class);
-//        agent.setAgentId(id);
-        Agent currentAgent = agentsDao.getAgent(id).get();
         Agent agent = JsonRequestUtils.readBodyAsType(req, Agent.class);
 
+        Agent currentAgent = agentsDao.getAgent(id).get();
         currentAgent.setCallSign(agent.getCallSign());
-
         agentsDao.updateAgent(currentAgent);
 
         return agent;
