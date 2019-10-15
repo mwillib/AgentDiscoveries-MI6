@@ -20,7 +20,6 @@ export default class UsersTable extends React.Component {
 
     render() {
         return (
-
             <div className='col-md-8 col-md-offset-2'>
                 <h3>Users</h3>
                 <Link to={`/admin/users/add`}>

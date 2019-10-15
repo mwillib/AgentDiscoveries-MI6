@@ -19,9 +19,7 @@ export default class RegionsTable extends React.Component {
     }
 
     render() {
-
         return (
-
             <div className='col-md-8 col-md-offset-2'>
                 <h3>Regions</h3>
                 <Link to={`/admin/regions/add`}>
@@ -31,9 +29,7 @@ export default class RegionsTable extends React.Component {
                 </Link>
                 <Entities api='regions' key='regions' entities={this.state.entities}/>
             </div>
-
         );
-
     }
 
     loadEntities() {

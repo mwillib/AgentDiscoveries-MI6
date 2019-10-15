@@ -19,9 +19,7 @@ export default class LocationsTable extends React.Component {
     }
 
     render() {
-
         return (
-
             <div className='col-md-8 col-md-offset-2'>
                 <h3>Locations</h3>
                 <Link to={`/admin/locations/add`}>
@@ -31,9 +29,7 @@ export default class LocationsTable extends React.Component {
                 </Link>
                 <Entities api='locations' key='locations' entities={this.state.entities}/>
             </div>
-
         );
-
     }
 
     loadEntities() {
