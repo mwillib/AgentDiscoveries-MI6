@@ -32,6 +32,7 @@ export default class SearchResult extends React.Component {
     }
 
     renderResultBody(result) {
+//         console.log(Object.keys(this.props.results[0]));
         return Object.keys(result).map(key => {
 
             const value = result[key];
@@ -56,16 +57,20 @@ export default class SearchResult extends React.Component {
     getResultsHeader(results) {
         return results.length > 0
             ? (results.length === 1
-                ? <div className="result-heading"><h3>{`${results.length} result`}</h3><button onClick={this.jsPdfGenerator}>Download PDF</button></div>
-                : <div className="result-heading"><h3>{`${results.length} results`}</h3><button onClick={this.jsPdfGenerator}>Download PDF</button></div>)
+                ? <div className="result-heading"><h3>{`${results.length} result`}</h3><button class="btn btn-default" onClick={this.jsPdfGenerator}>Download PDF</button></div>
+                : <div className="result-heading"><h3>{`${results.length} results`}</h3><button class="btn btn-default" onClick={this.jsPdfGenerator}>Download PDF</button></div>)
             : '';
     }
 
     jsPdfGenerator() {
        const doc = new jsPDF();
-       const col = ["Region ID","Report ID","Status","Report Time","Report Body","Agent ID"];
+       let col = Object.keys(this.props.results[0]);
        const rows = [];
-       this.props.results.map(element => rows.push([element.regionId, element.reportId, element.status, element.reportTime, element.reportBody, element.agentId]));
+       for( let i = 0; i < this.props.results.length; i++ ) {
+            let row = [];
+            Object.values(this.props.results[i]).map( elem => row.push(elem) );
+            rows.push(row);
+       }
        doc.autoTable(col, rows, { startY: 10 });
        doc.save('Results.pdf');
     }
