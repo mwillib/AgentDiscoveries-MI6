@@ -37,7 +37,7 @@ export default class RegionsTable extends React.Component {
     }
 
     loadEntities() {
-       apiGet('users')
+       apiGet('regions')
            .then(results => this.setState({ entities: results }))
            .catch(errorLogAndRedirect);
     }
