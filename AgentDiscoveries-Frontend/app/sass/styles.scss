@@ -131,6 +131,12 @@ textarea {
      }
 }
 
+.result-heading {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
 .panel {
     background-color: transparent;
     .panel-heading {
@@ -139,12 +145,9 @@ textarea {
     }
 }
 
-thead {
+.table>thead>tr>th {
     color: $main-color;
-}
-
-.table-striped>tbody>tr:nth-of-type(odd) {
-    background-color: transparent;
+    border-bottom: none;
 }
 
 .overlay {
@@ -190,4 +193,10 @@ thead {
 
 .profile-img-container:hover .overlay {
   opacity: 0.8;
+}
+
+.panel-default>.panel-heading {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
 }
