@@ -32,7 +32,6 @@ export default class SearchResult extends React.Component {
     }
 
     renderResultBody(result) {
-//         console.log(Object.keys(this.props.results[0]));
         return Object.keys(result).map(key => {
 
             const value = result[key];
@@ -64,7 +63,7 @@ export default class SearchResult extends React.Component {
 
     jsPdfGenerator() {
        const doc = new jsPDF();
-       let col = Object.keys(this.props.results[0]);
+       const col = Object.keys(this.props.results[0]);
        const rows = [];
        for( let i = 0; i < this.props.results.length; i++ ) {
             let row = [];
