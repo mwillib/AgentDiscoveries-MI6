@@ -120,8 +120,6 @@ export default class LocationReportsSearch extends React.Component {
             toTime: this.state.toTime && moment.utc(this.state.toTime).endOf('day').toISOString()
         };
 
-        console.log(this.state.locations);
-
         const url = 'reports/locationstatuses?' + QueryString.stringify(params);
 
         apiGet(url)
