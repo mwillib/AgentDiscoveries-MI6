@@ -42,14 +42,14 @@ export default class EditProfileCallSign extends React.Component {
 
     onChange(event) {
         this.setState({ callSign: event.target.value });
-    }
+         }
 
     handleSubmit(event) {
         event.preventDefault();
 
         const body = { callSign: this.state.callSign };
 
-        apiPut('agents/editcallsign', body, currentAgentId())
+        apiPut('agents/callsign', body, currentAgentId())
             .then(() => { window.location.hash = '/profile';})
             .catch(() => this.setState({ message: { message: 'Could not update Call Sign, please try again later', type: 'danger'} }));
     }

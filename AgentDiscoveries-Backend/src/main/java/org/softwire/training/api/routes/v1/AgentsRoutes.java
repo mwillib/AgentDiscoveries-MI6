@@ -64,7 +64,6 @@ public class AgentsRoutes {
         permissionsVerifier.verifyIsAdminOrRelevantAgent(req, id);
 
         Agent agent = JsonRequestUtils.readBodyAsType(req, Agent.class);
-
         Agent currentAgent = agentsDao.getAgent(id).get();
         currentAgent.setCallSign(agent.getCallSign());
         agentsDao.updateAgent(currentAgent);

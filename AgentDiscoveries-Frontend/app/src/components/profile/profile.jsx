@@ -25,7 +25,6 @@ export default class Profile extends React.Component {
     componentWillMount() {
         this.getProfilePicture();
         this.getUser();
-        this.getCallSign();
     }
 
     render() {
@@ -43,6 +42,13 @@ export default class Profile extends React.Component {
                         </Link>
                     </div>
                 ) : ''}
+                <div className='col-md-6'>
+                    <Link to='/profile/edit/usernamepassword'>
+                        <Button type='button'>
+                            Change Username and password
+                        </Button>
+                    </Link>
+                </div>
 
                 <div className='profile-img-container col-md-6'>
                     <Image className='img' src={this.state.imgSrc} />
@@ -90,13 +96,6 @@ export default class Profile extends React.Component {
             .catch(errorLogAndRedirect);
     }
 
-    getCallSign() {
-        apiGet('agents', currentAgentId())
-            .then (agent=> {
-                this.setState({ agent: agent});
-                if(agent.agentId){
-                    this.getAgent(agent.agentId);
-                }
-            });
-    }
+
+
 }

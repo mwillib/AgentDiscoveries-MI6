@@ -103,6 +103,33 @@ public class UsersRoutes implements EntityCRUDRoutes {
         return mapModelToApiModel(user);
     }
 
+    @Override
+    public UserApiModel updateUsernamePasswordEntity(Request req, Response res, int id) {
+        UserApiModel userApiModel = JsonRequestUtils.readBodyAsType(req, UserApiModel.class);
+
+        permissionsVerifier.verifyIsAdminOrRelevantUser(req, id);
+
+        Optional<User> optionalUser = usersDao.getUser(id);
+        if (!optionalUser.isPresent()) {
+            throw new FailedRequestException(ErrorCode.INVALID_INPUT, "userId cannot be found");
+        }
+
+        User oldUser = optionalUser.get();
+
+        User user = new User(
+                userApiModel.getUsername(),
+                Strings.isNullOrEmpty(userApiModel.getPassword())
+                        ? oldUser.getHashedPassword()
+                        : passwordHasher.hashPassword(userApiModel.getPassword()),
+                oldUser.getAgentId(),
+                oldUser.isAdmin());
+
+        user.setUserId(id);
+        usersDao.updateUser(user);
+
+        return mapModelToApiModel(user);
+    }
+
     private UserApiModel mapModelToApiModel(User user) {
         UserApiModel userApiModel = new UserApiModel();
         userApiModel.setUserId(user.getUserId());
