@@ -61,7 +61,7 @@ export default class LocationReportsSearch extends React.Component {
                     <FormGroup>
                         <ControlLabel>Location</ControlLabel>
                         <FormControl componentClass="select"
-                        onChange={this.onLocationChange}>
+                            onChange={this.onLocationChange}>
                             {locationOptions}
                         </FormControl>
                     </FormGroup>
@@ -104,9 +104,9 @@ export default class LocationReportsSearch extends React.Component {
     }
 
     loadLocations() {
-            apiGet('locations')
-                .then(results => this.setState({ locations: results }))
-                .catch(errorLogAndRedirect);
+        apiGet('locations')
+            .then(results => this.setState({ locations: results }))
+            .catch(errorLogAndRedirect);
     }
 
     onSubmit(event) {
