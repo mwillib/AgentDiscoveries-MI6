@@ -28,13 +28,20 @@ export default class Result extends React.Component {
 
     getResultRow() {
         const headers = this.props.headers;
+        const reportBody = Object.values(this.props.entity)[4];
+
         return headers.map((header) => {
             if(this.props.entity[header] === undefined) this.props.entity[header] = 'N/A';
-            if(this.isIsoDate(this.props.entity[header])) {
+
+            if (this.props.entity[header] === reportBody && reportBody.length > 20) {
+                const shortReportBody = reportBody.slice(0, 20) + "...";
+                return <td key={header}>{shortReportBody}</td>;
+            } else if(this.isIsoDate(this.props.entity[header])) {
                 return <td key={header}>{this.formatDate(this.props.entity[header])}</td>;
             } else {
                 return <td key={header}>{this.props.entity[header].toString()}</td>;
             }
+
         });
     }
 
