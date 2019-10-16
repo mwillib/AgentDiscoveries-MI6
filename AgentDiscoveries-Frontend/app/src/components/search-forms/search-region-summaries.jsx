@@ -70,7 +70,7 @@ export default class RegionSummariesSearch extends React.Component {
                     </FormGroup>
                     <Button type='submit'>Search</Button>
                 </Form>
-                <SearchResult results={this.state.results} />
+                <SearchResult api='regions' results={this.state.results} />
             </div>
         );
     }
