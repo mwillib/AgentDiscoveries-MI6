@@ -145,12 +145,9 @@ textarea {
     }
 }
 
-thead {
+.table>thead>tr>th {
     color: $main-color;
-}
-
-.table-striped>tbody>tr:nth-of-type(odd) {
-    background-color: transparent;
+    border-bottom: none;
 }
 
 .overlay {

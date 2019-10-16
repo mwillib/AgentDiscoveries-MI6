@@ -50,18 +50,21 @@ export default class UserForm extends React.Component {
                             <FormControl type='text' required
                                 placeholder='Enter username'
                                 value={this.state.username}
-                                onChange={this.onUsernameUpdate}/>
+                                onChange={this.onUsernameUpdate}
+                                id="username"/>
                         </FormGroup>
                         <FormGroup>
                             <FormControl type='password' required={!this.props.id}
                                 placeholder={'Enter password' + (this.props.id ? ' (leave blank if unchanged)' : '')}
                                 value={this.state.password}
-                                onChange={this.onPasswordUpdate}/>
+                                onChange={this.onPasswordUpdate}
+                                id="password"/>
                         </FormGroup>
                         <FormGroup>
                             <Checkbox type='checkbox'
                                 value={this.state.isAgent}
-                                onChange={this.onIsAgentUpdate}>
+                                onChange={this.onIsAgentUpdate}
+                                id="agent-select">
                                 Agent
                             </Checkbox>
                         </FormGroup>
@@ -71,7 +74,8 @@ export default class UserForm extends React.Component {
                         <FormGroup>
                             <Checkbox type='checkbox'
                                 value={this.state.isAdmin}
-                                onChange={this.onIsAdminUpdate}>
+                                onChange={this.onIsAdminUpdate}
+                                id="admin-select">
                                 Admin
                             </Checkbox>
                         </FormGroup>
