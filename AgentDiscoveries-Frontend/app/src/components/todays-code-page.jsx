@@ -2,6 +2,7 @@ import * as React from 'react';
 import {Button, ControlLabel, Form, FormControl, FormGroup} from 'react-bootstrap';
 import {apiPost} from './utilities/request-helper';
 import Timezones from './timezones';
+import $ from 'jquery';
 
 export default class TodaysCodePage extends React.Component {
     constructor(props) {
@@ -10,8 +11,8 @@ export default class TodaysCodePage extends React.Component {
         this.state = {
             message: '',
             result: '',
-            showMessage: false,
-            buttonHidden: false
+            showMessage: true,
+            hideButton: false
         };
 
         this.onChange = this.onChange.bind(this);
@@ -22,19 +23,19 @@ export default class TodaysCodePage extends React.Component {
     }
 
     render() {
+    console.log(this.state.showMessage);
         return (
             <React.Fragment>
 
                 <Timezones />
-
+                <div className='box'></div>
                 <div className='col-md-8 col-md-offset-2 text-center'>
-                    {this.state.buttonHidden ? null :
-                    <Button className="message-btn" onClick={this.slideDown}>Encode Message</Button>}
-                        {this.state.showMessage ?
-                        <Form className="encode-form">
+
+                    {this.state.hideButton ? null : <Button className="message-btn" onClick={this.slideDown}>Encode Message</Button>}
+
+                        {this.state.showMessage ? <Form className="encode-form">
                             <h3>Encode/decode message with today's secret</h3>
                             <FormGroup>
-                                <ControlLabel>Message</ControlLabel>
                                 <FormControl type='text' required
                                     id='message-input'
                                     componentClass='textarea' rows={6}
@@ -55,8 +56,10 @@ export default class TodaysCodePage extends React.Component {
     }
 
     slideDown(event) {
+        this.setState({hideButton: true});
         this.setState({showMessage: true});
-        this.setState({buttonHidden: true});
+        $('.encode-form').animate({height: '35vh'}, 'slow');
+        $('h3').addClass('animation');
     }
 
     onChange(event) {
