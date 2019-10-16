@@ -65,6 +65,6 @@ public class TokenRoutes {
 
         boolean isAgent = user.getAgentId() != null;
 
-        return new TokenResponseApiModel(issuedToken.getToken(), issuedToken.getExpiryInstant().toString(), user.getUserId(), user.isAdmin(), isAgent);
+        return new TokenResponseApiModel(issuedToken.getToken(), issuedToken.getExpiryInstant().toString(), user.getUserId(), user.isAdmin(), isAgent, user.getAgentId());
     }
 }
