@@ -6,13 +6,13 @@ import Message from '../message';
 
 export default class EditProfileUsernamePassword extends React.Component {
     constructor(props) {
-        super(props)
+        super(props);
 
         this.state = {
-        username: '',
-        password: '',
+            username: '',
+            password: '',
 
-        message: {}
+            message: {}
 
         };
 
@@ -79,16 +79,4 @@ export default class EditProfileUsernamePassword extends React.Component {
             .catch(() => this.setState({ message: { message: 'Could not update username or password, please try again later', type: 'danger'} }));
 
     }
-
-    loadUser(id) {
-        apiGet('users', id)
-            .then(result => {
-                this.setState(result);
-                if (result.agentId) {
-                    this.loadAgent(result.agentId);
-                }
-            })
-            .catch(error => this.setState({ message: { message: error.message, type: 'danger' } }));
-    }
-
 }

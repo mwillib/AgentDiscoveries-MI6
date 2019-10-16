@@ -6,7 +6,6 @@ import AgentInfo from './agent-info';
 import EditProfilePicture from './edit-profile-picture';
 import placeholderPicture from '../../../static/placeholder.jpg';
 import {currentUserId} from '../utilities/user-helper';
-import {currentAgentId} from '../utilities/user-helper';
 import {errorLogAndRedirect} from '../error';
 
 export default class Profile extends React.Component {

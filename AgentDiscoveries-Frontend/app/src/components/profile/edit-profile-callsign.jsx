@@ -42,7 +42,7 @@ export default class EditProfileCallSign extends React.Component {
 
     onChange(event) {
         this.setState({ callSign: event.target.value });
-         }
+    }
 
     handleSubmit(event) {
         event.preventDefault();
