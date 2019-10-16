@@ -28,7 +28,7 @@ public class TokenResponseApiModel {
 
     public int getUserId(){return userId;}
 
-    public int getAgentId(){return agentId;}
+    public Integer getAgentId(){return agentId;}
 
     public boolean getIsAdmin(){return isAdmin;}
 
