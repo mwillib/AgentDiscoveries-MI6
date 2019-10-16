@@ -6,6 +6,7 @@ import AgentInfo from './agent-info';
 import EditProfilePicture from './edit-profile-picture';
 import placeholderPicture from '../../../static/placeholder.jpg';
 import {currentUserId} from '../utilities/user-helper';
+import {currentAgentId} from '../utilities/user-helper';
 import {errorLogAndRedirect} from '../error';
 
 export default class Profile extends React.Component {
@@ -24,6 +25,7 @@ export default class Profile extends React.Component {
     componentWillMount() {
         this.getProfilePicture();
         this.getUser();
+        this.getCallSign();
     }
 
     render() {
@@ -86,5 +88,15 @@ export default class Profile extends React.Component {
                 }
             })
             .catch(errorLogAndRedirect);
+    }
+
+    getCallSign() {
+        apiGet('agents', currentAgentId())
+            .then (agent=> {
+                this.setState({ agent: agent});
+                if(agent.agentId){
+                    this.getAgent(agent.agentId);
+                }
+            });
     }
 }

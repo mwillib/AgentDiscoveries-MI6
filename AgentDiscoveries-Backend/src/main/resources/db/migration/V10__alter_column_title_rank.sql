@@ -1,0 +1,1 @@
+ALTER TABLE agents CHANGE COLUMN `rank` `level` int(11);
