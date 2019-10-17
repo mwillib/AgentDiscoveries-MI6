@@ -59,7 +59,8 @@ export default class TodaysCodePage extends React.Component {
         this.setState({hideButton: true});
         this.setState({showMessage: true});
         $('.encode-form').animate({height: '35vh'}, 'slow');
-        $('h3').addClass('animation');
+        $('h3').addClass('typing-animation');
+        setTimeout(function(){ $('h3').removeClass('typing-animation'); }, 3500);
     }
 
     onChange(event) {
