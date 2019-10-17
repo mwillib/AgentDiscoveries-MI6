@@ -44,7 +44,6 @@ public class RegionSummaryReportsRoutes extends ReportsRoutesBase<RegionSummaryR
         model.setReportBody(apiModel.getReportBody());
         model.setReportTitle(apiModel.getReportTitle());
 
-
         return model;
     }
 

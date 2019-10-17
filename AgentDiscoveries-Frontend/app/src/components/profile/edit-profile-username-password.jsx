@@ -11,7 +11,6 @@ export default class EditProfileUsernamePassword extends React.Component {
         this.state = {
             username: '',
             password: '',
-
             message: {}
 
         };

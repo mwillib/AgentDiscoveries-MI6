@@ -97,7 +97,4 @@ export default class Profile extends React.Component {
             })
             .catch(errorLogAndRedirect);
     }
-
-
-
 }
