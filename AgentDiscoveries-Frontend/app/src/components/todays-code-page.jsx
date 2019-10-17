@@ -30,10 +30,10 @@ export default class TodaysCodePage extends React.Component {
                 <Timezones />
                 <div className='box'></div>
                 <div className='col-md-8 col-md-offset-2 text-center'>
-
-                    {this.state.hideButton ? null : <Button className="message-btn" onClick={this.slideDown}>Encode Message</Button>}
-
-                        {this.state.showMessage ? <Form className="encode-form">
+                    {this.state.buttonHidden ? null :
+                        <Button className="message-btn" id="encode-button-show" onClick={this.slideDown}>Encode Message</Button>}
+                    {this.state.showMessage ?
+                        <Form className="encode-form">
                             <h3>Encode/decode message with today's secret</h3>
                             <FormGroup>
                                 <FormControl type='text' required
