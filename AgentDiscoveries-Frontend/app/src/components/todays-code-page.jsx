@@ -22,12 +22,22 @@ export default class TodaysCodePage extends React.Component {
         this.slideDown = this.slideDown.bind(this);
     }
 
+    componentDidMount() {
+        $('#react-root').css('background-color', 'rgba(0, 0, 0, 0.7)');
+        $('.opening-top').animate({ width: '0%' }, 800, function() {});
+        $('.opening-bottom').animate({ width: '0%' }, 800, function() {});
+    }
+
     render() {
-        console.log(this.state.showMessage);
+
         return (
             <React.Fragment>
 
+                <div className='opening-top'></div>
+                <div className='opening-bottom'></div>
+
                 <Timezones />
+
                 <div className='box'></div>
                 <div className='col-md-8 col-md-offset-2 text-center'>
                     {this.state.buttonHidden ? null :
@@ -38,7 +48,7 @@ export default class TodaysCodePage extends React.Component {
                             <FormGroup>
                                 <FormControl type='text' required
                                     id='message-input'
-                                    componentClass='textarea' rows={6}
+                                    componentClass='textarea' rows={2}
                                     placeholder='Enter message'
                                     value={this.state.message}
                                     onChange={this.onChange}/>
@@ -47,8 +57,8 @@ export default class TodaysCodePage extends React.Component {
                             <Button id="decode-button" type='submit' onClick={this.handleDecode}>Decode</Button>
                         </Form> : null}
                     <div id='code-result'>
-                        {this.state.result ? <h3>Result</h3> : ''}
-                        {this.state.result}
+                        {this.state.result ? <h3>Result: </h3> : ''}
+                        <h4>{this.state.result}</h4>
                     </div>
                 </div>
             </React.Fragment>
@@ -56,9 +66,9 @@ export default class TodaysCodePage extends React.Component {
     }
 
     slideDown(event) {
-        this.setState({hideButton: true});
+        this.setState({buttonHidden: true});
         this.setState({showMessage: true});
-        $('.encode-form').animate({height: '35vh'}, 'slow');
+        $('.encode-form').animate({height: '20vh'}, 'slow');
         $('h3').addClass('typing-animation');
         setTimeout(function(){ $('h3').removeClass('typing-animation'); }, 3500);
     }
