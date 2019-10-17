@@ -22,12 +22,22 @@ export default class TodaysCodePage extends React.Component {
         this.slideDown = this.slideDown.bind(this);
     }
 
+    componentDidMount() {
+        $('#react-root').css('background-color', 'rgba(0, 0, 0, 0.7)');
+        $('.opening-top').animate({ width: '0%' }, 800, function() {});
+        $('.opening-bottom').animate({ width: '0%' }, 800, function() {});
+    }
+
     render() {
-    console.log(this.state.showMessage);
+
         return (
             <React.Fragment>
 
+                <div className='opening-top'></div>
+                <div className='opening-bottom'></div>
+
                 <Timezones />
+
                 <div className='box'></div>
                 <div className='col-md-8 col-md-offset-2 text-center'>
 
