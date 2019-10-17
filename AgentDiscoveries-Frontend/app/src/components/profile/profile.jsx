@@ -45,7 +45,7 @@ export default class Profile extends React.Component {
                         </React.Fragment>
                     ) : ''}
 
-                    <Link to='/profile/edit/changeusernamepassword'>
+                    <Link to='/profile/edit/credentials'>
                         <Button type='button'>
                             Change Username and password
                         </Button>
