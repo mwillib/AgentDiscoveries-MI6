@@ -122,6 +122,14 @@ body {
     }
 }
 
+#code-result {
+    text-align: left;
+    h3 {
+        margin: 0;
+        color: $main-color;
+    }
+}
+
 .typing-animation {
     overflow: hidden; /* Ensures the content is not revealed until the animation */
     border-right: .11em solid $main-color; /* The typwriter cursor */
