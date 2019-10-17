@@ -148,7 +148,7 @@ public class AgentDiscoveriesApplication implements Runnable {
             post("", entityCRUDRoutes::createEntity, responseTransformer);
             get("/:id", (req, res) -> entityCRUDRoutes.readEntity(req, res, idParamAsInt(req)), responseTransformer);
             put("/:id", (req, res) -> entityCRUDRoutes.updateEntity(req, res, idParamAsInt(req)), responseTransformer);
-            put("/usernamepassword/:id", (req, res) -> entityCRUDRoutes.updateUsernamePasswordEntity(req, res, idParamAsInt(req)), responseTransformer);
+            put("/changeusernamepassword/:id", (req, res) -> entityCRUDRoutes.updateUsernamePasswordEntity(req, res, idParamAsInt(req)), responseTransformer);
             delete("/:id", (req, res) -> entityCRUDRoutes.deleteEntity(req, res, idParamAsInt(req)), responseTransformer);
             get("", entityCRUDRoutes::readEntities, responseTransformer);
         });

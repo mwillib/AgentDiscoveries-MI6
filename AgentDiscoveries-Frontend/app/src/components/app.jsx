@@ -56,7 +56,7 @@ export default class App extends React.Component {
                         <Route path='/profile' exact render={() => <Page><Profile /></Page>} />
                         <Route path='/profile/edit/callsign' render={() => <Page><EditProfileCallSign /></Page>} />
                         <Route path='/profile/edit/picture' render={() => <Page><EditProfilePicture /></Page>} />
-                        <Route path='/profile/edit/usernamepassword' render={() => <Page><EditProfileUsernamePassword /></Page>} />
+                        <Route path='/profile/edit/changeusernamepassword' render={() => <Page><EditProfileUsernamePassword /></Page>} />
 
                         <Route path='/error' render={() => <Page><Error/></Page>}/>
                         <Route render={() => <Page><Error/></Page>}/>
