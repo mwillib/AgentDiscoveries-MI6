@@ -1,0 +1,1 @@
+ALTER TABLE region_summary_reports ADD report_title VARCHAR(50) NOT NULL;

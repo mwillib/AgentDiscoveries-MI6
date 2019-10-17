@@ -12,6 +12,7 @@ export default class RegionSummarySubmit extends React.Component {
             regions: [],
 
             regionId: '',
+            reportTitle:'',
             status: '',
             reportBody: '',
 
@@ -19,6 +20,7 @@ export default class RegionSummarySubmit extends React.Component {
         };
 
         this.onRegionChange = this.onRegionChange.bind(this);
+        this.onReportTitleChange = this.onReportTitleChange.bind(this);
         this.onStatusChange = this.onStatusChange.bind(this);
         this.onReportBodyChange = this.onReportBodyChange.bind(this);
         this.onSubmit = this.onSubmit.bind(this);
@@ -50,6 +52,15 @@ export default class RegionSummarySubmit extends React.Component {
                         </FormControl>
                     </FormGroup>
                     <FormGroup>
+                        <ControlLabel>Report Title</ControlLabel>
+                        <FormControl type='input' required
+                            maxlength="50"
+                            placeholder='Enter report title'
+                            value={this.state.reportTitle}
+                            onChange={this.onReportTitleChange}
+                            id="report-title"/>
+                    </FormGroup>
+                    <FormGroup>
                         <ControlLabel>Status</ControlLabel>
                         <FormControl type='number' required
                             min={0}
@@ -78,6 +89,10 @@ export default class RegionSummarySubmit extends React.Component {
         this.setState({ regionId: event.target.value && parseInt(event.target.value) });
     }
 
+    onReportTitleChange(event) {
+        this.setState({ reportTitle: event.target.value });
+    }
+
     onStatusChange(event) {
         this.setState({ status: event.target.value && parseInt(event.target.value) });
     }
@@ -91,6 +106,7 @@ export default class RegionSummarySubmit extends React.Component {
 
         const body = {
             regionId: this.state.regionId,
+            reportTitle: this.state.reportTitle,
             status: this.state.status,
             reportBody: this.state.reportBody
         };
