@@ -32,7 +32,6 @@ export default class TodaysCodePage extends React.Component {
                         <Button className="message-btn" id="encode-button-show" onClick={this.slideDown}>Encode Message</Button>}
                     {this.state.showMessage ?
                         <Form className="encode-form">
-
                             <h3>Encode/decode message with today's secret</h3>
                             <FormGroup>
                                 <ControlLabel>Message</ControlLabel>

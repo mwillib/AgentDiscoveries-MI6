@@ -78,7 +78,7 @@ export default class LocationReportsSearch extends React.Component {
                     </FormGroup>
                     <Button type='submit'>Search</Button>
                 </Form>
-                <SearchResult results={this.state.results} />
+                <SearchResult api='locations' results={this.state.results} />
             </div>
         );
     }
