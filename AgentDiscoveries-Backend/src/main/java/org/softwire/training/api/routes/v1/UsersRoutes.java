@@ -103,7 +103,6 @@ public class UsersRoutes implements EntityCRUDRoutes {
         return mapModelToApiModel(user);
     }
 
-    @Override
     public UserApiModel updateUsernamePasswordEntity(Request req, Response res, int id) {
         UserApiModel userApiModel = JsonRequestUtils.readBodyAsType(req, UserApiModel.class);
 

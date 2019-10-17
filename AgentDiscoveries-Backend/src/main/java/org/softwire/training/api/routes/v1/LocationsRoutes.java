@@ -4,7 +4,6 @@ import org.softwire.training.api.core.JsonRequestUtils;
 import org.softwire.training.api.core.PermissionsVerifier;
 import org.softwire.training.api.models.ErrorCode;
 import org.softwire.training.api.models.FailedRequestException;
-import org.softwire.training.api.models.UserApiModel;
 import org.softwire.training.db.daos.LocationsDao;
 import org.softwire.training.models.Location;
 import spark.Request;
@@ -73,11 +72,6 @@ public class LocationsRoutes implements EntityCRUDRoutes {
         locationsDao.updateLocation(location);
 
         return location;
-    }
-
-    @Override
-    public UserApiModel updateUsernamePasswordEntity(Request req, Response res, int id) {
-        return null;
     }
 
     private void validateLocationModel(Location location) {
