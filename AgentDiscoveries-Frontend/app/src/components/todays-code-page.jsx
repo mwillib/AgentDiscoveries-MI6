@@ -38,7 +38,6 @@ export default class TodaysCodePage extends React.Component {
 
                 <Timezones />
 
-                <div className='box'></div>
                 <div className='col-md-8 col-md-offset-2 text-center'>
                     {this.state.buttonHidden ? null :
                         <Button className="message-btn" id="encode-button-show" onClick={this.slideDown}>Encode Message</Button>}
