@@ -1,5 +1,5 @@
 import * as React from 'react';
-import {Button, ControlLabel, Form, FormControl, FormGroup} from 'react-bootstrap';
+import {Button, Form, FormControl, FormGroup} from 'react-bootstrap';
 import {apiPost} from './utilities/request-helper';
 import Timezones from './timezones';
 import $ from 'jquery';
