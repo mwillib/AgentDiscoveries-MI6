@@ -4,11 +4,7 @@ import org.softwire.training.api.core.PermissionsVerifier;
 import org.softwire.training.api.models.RegionSummaryReportApiModel;
 import org.softwire.training.db.daos.RegionSummaryReportsDao;
 import org.softwire.training.db.daos.UsersDao;
-import org.softwire.training.db.daos.searchcriteria.FromTimeSearchCriterion;
-import org.softwire.training.db.daos.searchcriteria.RegionIdSearchCriterion;
-import org.softwire.training.db.daos.searchcriteria.ReportSearchCriterion;
-import org.softwire.training.db.daos.searchcriteria.AgentIdSearchCriterion;
-import org.softwire.training.db.daos.searchcriteria.UserIdSearchCriterion;
+import org.softwire.training.db.daos.searchcriteria.*;
 import org.softwire.training.models.RegionSummaryReport;
 import spark.QueryParamsMap;
 import spark.Request;
@@ -46,6 +42,7 @@ public class RegionSummaryReportsRoutes extends ReportsRoutesBase<RegionSummaryR
         model.setStatus(apiModel.getStatus());
         model.setReportTime(reportTimeUtc);
         model.setReportBody(apiModel.getReportBody());
+        model.setReportTitle(apiModel.getReportTitle());
 
         return model;
     }
@@ -60,6 +57,7 @@ public class RegionSummaryReportsRoutes extends ReportsRoutesBase<RegionSummaryR
         apiModel.setStatus(model.getStatus());
         apiModel.setReportTime(model.getReportTime().atZone(ZoneOffset.UTC));
         apiModel.setReportBody(model.getReportBody());
+        apiModel.setReportTitle(model.getReportTitle());
 
         return apiModel;
     }
@@ -87,6 +85,10 @@ public class RegionSummaryReportsRoutes extends ReportsRoutesBase<RegionSummaryR
 
         if (!isNullOrEmpty(queryMap.get("toTime").value())) {
             apiReportSearchCriteria.add(new FromTimeSearchCriterion(ZonedDateTime.parse(queryMap.get("toTime").value())));
+        }
+
+        if (!isNullOrEmpty(queryMap.get("reportTitle").value())){
+            apiReportSearchCriteria.add(new ReportTitleSearchCriterion(queryMap.get("reportTitle").value()));
         }
 
         return apiReportSearchCriteria;

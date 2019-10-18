@@ -7,6 +7,7 @@ import Page from './page';
 import Profile from './profile/profile';
 import EditProfilePicture from './profile/edit-profile-picture';
 import EditProfileCallSign from './profile/edit-profile-callsign';
+import EditProfileUsernamePassword from './profile/edit-profile-username-password';
 
 import LocationReportSearch from './search-forms/search-location-reports';
 import RegionSummarySearch from './search-forms/search-region-summaries';
@@ -60,6 +61,7 @@ export default class App extends React.Component {
                             <Route path='/profile' exact render={() => <Page><Profile /></Page>} />
                             <Route path='/profile/edit/callsign' render={() => <Page><EditProfileCallSign /></Page>} />
                             <Route path='/profile/edit/picture' render={() => <Page><EditProfilePicture /></Page>} />
+                            <Route path='/profile/edit/credentials' render={() => <Page><EditProfileUsernamePassword /></Page>} />
 
                             <Route path='/error' render={() => <Page><Error/></Page>}/>
                             <Route render={() => <Page><Error/></Page>}/>

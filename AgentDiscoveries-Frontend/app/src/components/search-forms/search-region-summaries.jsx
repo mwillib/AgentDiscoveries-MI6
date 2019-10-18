@@ -16,6 +16,7 @@ export default class RegionSummariesSearch extends React.Component {
             agentId: '',
             fromTime: '',
             toTime: '',
+            reportTitle: '',
             regions: [],
             agents: [],
             results: [],
@@ -27,6 +28,7 @@ export default class RegionSummariesSearch extends React.Component {
         this.onFromChange = this.onFromChange.bind(this);
         this.onToChange = this.onToChange.bind(this);
         this.onSubmit = this.onSubmit.bind(this);
+        this.onReportTitleChange = this.onReportTitleChange.bind(this);
     }
 
     componentDidMount() {
@@ -57,6 +59,13 @@ export default class RegionSummariesSearch extends React.Component {
                             onChange={this.onAgentChange}>
                             {agentOptions}
                         </FormControl>
+                    </FormGroup>
+                    <FormGroup>
+                        <ControlLabel>Report Title</ControlLabel>
+                        <FormControl type='text'
+                            placeholder='Enter report title'
+                            value={this.state.reportTitle}
+                            onChange={this.onReportTitleChange}/>
                     </FormGroup>
                     <FormGroup className='form-inline'>
                         <ControlLabel className='rm-3'>From</ControlLabel>
@@ -91,6 +100,10 @@ export default class RegionSummariesSearch extends React.Component {
         this.setState({ toTime: event.target.value });
     }
 
+    onReportTitleChange(event) {
+        this.setState({ reportTitle: event.target.value });
+    }
+
     loadRegions() {
         apiGet('regions')
             .then(results => this.setState({ regions: results }))
@@ -108,6 +121,7 @@ export default class RegionSummariesSearch extends React.Component {
         const params = {
             regionId: this.state.regionId,
             agentId: this.state.agentId,
+            reportTitle: this.state.reportTitle,
             fromTime: this.state.fromTime && moment.utc(this.state.fromTime).startOf('day').toISOString(),
             toTime: this.state.toTime && moment.utc(this.state.toTime).endOf('day').toISOString()
         };

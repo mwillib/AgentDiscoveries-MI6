@@ -82,6 +82,8 @@ public class AgentDiscoveriesApplication implements Runnable {
                 get("/locations", locationsRoutes::readEntities, responseTransformer);
                 setupBasicEntityCrudRoutes("/users", usersRoutes);
 
+                put("/credentials/:id", (req, res) -> usersRoutes.updateUsernamePasswordEntity(req, res, idParamAsInt(req)), responseTransformer);
+
                 post("/decodemessage", messageProcessorRoutes::decodeMessage, responseTransformer);
                 post("/decodemessage/enemy", messageProcessorRoutes::bruteForceDecode, responseTransformer);
                 post("/encodemessage", messageProcessorRoutes::encodeMessage, responseTransformer);

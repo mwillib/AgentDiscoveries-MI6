@@ -81,9 +81,11 @@ export default class SearchResult extends React.Component {
         const doc = new jsPDF();
         const col = Object.keys(this.props.results[0]);
         const rows = [];
-        for (let i = 0; i < this.props.results.length; i++ ) {
+
+        for( let i = 0; i < this.props.results.length; i++ ) {
             rows.push(Object.values(this.props.results[i]));
         }
+
         doc.autoTable(col, rows, { startY: 10 });
         const date = new Date();
         let result = date.getHours() < 12 ? 'Reports - ' + date.getHours() + '.' + date.getMinutes() + 'am.pdf'

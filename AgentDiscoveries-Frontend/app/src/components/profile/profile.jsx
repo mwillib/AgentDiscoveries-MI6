@@ -6,7 +6,6 @@ import AgentInfo from './agent-info';
 import EditProfilePicture from './edit-profile-picture';
 import placeholderPicture from '../../../static/placeholder.jpg';
 import {currentUserId} from '../utilities/user-helper';
-import {currentAgentId} from '../utilities/user-helper';
 import {errorLogAndRedirect} from '../error';
 
 export default class Profile extends React.Component {
@@ -25,7 +24,6 @@ export default class Profile extends React.Component {
     componentWillMount() {
         this.getProfilePicture();
         this.getUser();
-        this.getCallSign();
     }
 
     render() {
@@ -33,16 +31,26 @@ export default class Profile extends React.Component {
             <div className='col-md-8 col-md-offset-2'>
                 <h3>{this.state.user ? `Welcome ${this.state.user.username}` : '' }</h3>
 
-                {this.state.agent.callSign ? (
-                    <div className='col-md-6'>
-                        <AgentInfo agent={this.state.agent} />
-                        <Link to='/profile/edit/callsign'>
-                            <Button type='button'>
-                                Change Call Sign
-                            </Button>
-                        </Link>
-                    </div>
-                ) : ''}
+                <div className='col-md-6'>
+                    {this.state.agent.callSign ? (
+                        <React.Fragment>
+                            <AgentInfo agent={this.state.agent} />
+                            <Link to='/profile/edit/callsign'>
+                                <Button type='button'>
+                                    Change Call Sign
+                                </Button>
+                            </Link>
+                            <br />
+                            <br />
+                        </React.Fragment>
+                    ) : ''}
+
+                    <Link to='/profile/edit/credentials'>
+                        <Button type='button'>
+                            Change Username and password
+                        </Button>
+                    </Link>
+                </div>
 
                 <div className='profile-img-container col-md-6'>
                     <Image className='img' src={this.state.imgSrc} />
@@ -88,15 +96,5 @@ export default class Profile extends React.Component {
                 }
             })
             .catch(errorLogAndRedirect);
-    }
-
-    getCallSign() {
-        apiGet('agents', currentAgentId())
-            .then (agent=> {
-                this.setState({ agent: agent});
-                if(agent.agentId){
-                    this.getAgent(agent.agentId);
-                }
-            });
     }
 }
