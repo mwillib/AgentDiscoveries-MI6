@@ -21,7 +21,6 @@ import LocationForm from './admin/location-form';
 import RegionForm from './admin/region-form';
 import UserForm from './admin/user-form';
 import Error from './error';
-import YoutubeBackground from 'react-youtube-background';
 
 import { checkToken } from './utilities/request-helper';
 
@@ -34,7 +33,6 @@ export default class App extends React.Component {
         let newVideoId = videoIds[Math.floor(Math.random()*videoIds.length)];;
 
         return (
-            <YoutubeBackground videoId={newVideoId} >
                 <React.Fragment>
                     <Router>
                         <Switch>
@@ -68,7 +66,6 @@ export default class App extends React.Component {
                         </Switch>
                     </Router>
                 </React.Fragment>
-            </YoutubeBackground>
         );
     }
 }
