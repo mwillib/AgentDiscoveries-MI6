@@ -113,20 +113,16 @@ public class UsersRoutes implements EntityCRUDRoutes {
             throw new FailedRequestException(ErrorCode.INVALID_INPUT, "userId cannot be found");
         }
 
-        User oldUser = optionalUser.get();
+        User currentUser = optionalUser.get();
+        if(Strings.isNullOrEmpty(userApiModel.getPassword()){
+            currentUser.setHashedPassword(passwordHasher.hashPassword(userApiModel.getPassword()));
+        }
 
-        User user = new User(
-                userApiModel.getUsername(),
-                Strings.isNullOrEmpty(userApiModel.getPassword())
-                        ? oldUser.getHashedPassword()
-                        : passwordHasher.hashPassword(userApiModel.getPassword()),
-                oldUser.getAgentId(),
-                oldUser.isAdmin());
+        currentUser.setUsername(userApiModel.getUsername());
 
-        user.setUserId(id);
-        usersDao.updateUser(user);
+        usersDao.updateUser(currentUser);
 
-        return mapModelToApiModel(user);
+        return mapModelToApiModel(currentUser);
     }
 
     private UserApiModel mapModelToApiModel(User user) {
