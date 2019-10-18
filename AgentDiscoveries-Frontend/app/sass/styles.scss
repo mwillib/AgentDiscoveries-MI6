@@ -8,7 +8,6 @@ $main-color: #009fff;
 $text-color: #fff;
 
 body {
-  background-color: #000;
   background: url($background-gif) no-repeat center center fixed;
   background-size: cover;
   font-family: $font;
@@ -25,6 +24,7 @@ body {
     border: 1px solid #fff;
     border-left: none;
     border-right: none;
+    z-index: 2;
     .navbar-brand {
         color: $main-color;
     }
@@ -73,6 +73,26 @@ body {
   margin-bottom: 0.75rem;
 }
 
+.opening-top {
+    background-color: #000;
+    position: absolute;
+    top: 0;
+    right: 0;
+    height: 50%;
+    width: 100%;
+    z-index: 1;
+}
+
+.opening-bottom {
+    background-color: #000;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    height: 50%;
+    width: 100%;
+    z-index: 1;
+}
+
 .login-wrapper {
     padding-top: 15vh;
 }
@@ -99,6 +119,14 @@ body {
     transition: all .5s ease-in-out;
     h3 {
         margin: 10px auto;
+    }
+}
+
+#code-result {
+    text-align: left;
+    h3 {
+        margin: 0;
+        color: $main-color;
     }
 }
 
