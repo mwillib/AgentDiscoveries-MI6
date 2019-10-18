@@ -64,7 +64,7 @@ public class AgentDiscoveriesApplication implements Runnable {
             path("/api", () -> {
                 before("/*", tokenRoutes::validateToken);
 
-                get("/validtoken", (req, res) -> "Token is valid");
+                get("/validtoken", (req, res) -> "Token is valid", responseTransformer);
 
                 path("/legacy", () -> {
                     before("/*", (request, response) -> response.type("text/plain"));
@@ -82,7 +82,10 @@ public class AgentDiscoveriesApplication implements Runnable {
                 get("/locations", locationsRoutes::readEntities, responseTransformer);
                 setupBasicEntityCrudRoutes("/users", usersRoutes);
 
+                put("/credentials/:id", (req, res) -> usersRoutes.updateUsernamePasswordEntity(req, res, idParamAsInt(req)), responseTransformer);
+
                 post("/decodemessage", messageProcessorRoutes::decodeMessage, responseTransformer);
+                post("/decodemessage/enemy", messageProcessorRoutes::bruteForceDecode, responseTransformer);
                 post("/encodemessage", messageProcessorRoutes::encodeMessage, responseTransformer);
 
                 // API endpoint to initiate shutdown
@@ -119,6 +122,7 @@ public class AgentDiscoveriesApplication implements Runnable {
         post("", (req, res) -> agentsRoutes.createAgent(req, res), responseTransformer);
         get("/:id", (req, res) -> agentsRoutes.readAgent(req, res, idParamAsInt(req)), responseTransformer);
         put("/:id", (req, res) -> agentsRoutes.updateAgent(req, res, idParamAsInt(req)), responseTransformer);
+        put("/callsign/:id", (req, res) -> agentsRoutes.updateCallSign(req, res, idParamAsInt(req)), responseTransformer);
         delete("/:id", (req, res) -> agentsRoutes.deleteAgent(req, res, idParamAsInt(req)), responseTransformer);
         get("", (req, res) -> agentsRoutes.readAgents(req, res), responseTransformer);
     }

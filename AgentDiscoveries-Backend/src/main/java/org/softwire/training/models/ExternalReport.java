@@ -13,7 +13,7 @@ public class ExternalReport {
         this.reportBody = reportBody;
     }
 
-    public String getCallSign() {
+    public String getUser() {
         return callSign;
     }
 

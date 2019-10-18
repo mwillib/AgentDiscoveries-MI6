@@ -64,7 +64,7 @@ public class Agent {
         this.dateOfBirth = dateOfBirth;
     }
 
-    @Column(name = "rank", nullable = false)
+    @Column(name = "level", nullable = false)
     public int getRank() {
         return rank;
     }
