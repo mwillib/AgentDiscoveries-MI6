@@ -73,7 +73,7 @@ export default class EditProfileUsernamePassword extends React.Component {
             password: this.state.password,
         };
 
-        apiPut('users/credentials', params, currentUserId())
+        apiPut('credentials', params, currentUserId())
             .then(() => { window.location.hash = '/profile';})
             .catch(() => this.setState({ message: { message: 'Could not update username or password, please try again later', type: 'danger'} }));
 

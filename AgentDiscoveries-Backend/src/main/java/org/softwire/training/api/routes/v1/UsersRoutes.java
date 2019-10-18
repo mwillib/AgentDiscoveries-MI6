@@ -114,7 +114,7 @@ public class UsersRoutes implements EntityCRUDRoutes {
         }
 
         User currentUser = optionalUser.get();
-        if(Strings.isNullOrEmpty(userApiModel.getPassword()){
+        if(!Strings.isNullOrEmpty(userApiModel.getPassword())){
             currentUser.setHashedPassword(passwordHasher.hashPassword(userApiModel.getPassword()));
         }
 
